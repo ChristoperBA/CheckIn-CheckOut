@@ -52,6 +52,7 @@ public class ProyectoCheckInCheckOut {
          //Tripulacion
         Tripulacion ClaseTripulacion =new Tripulacion();
         ClaseTripulacion.MensajeA();
+     
         
         
         
