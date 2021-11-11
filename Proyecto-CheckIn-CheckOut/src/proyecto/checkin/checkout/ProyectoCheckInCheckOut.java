@@ -49,9 +49,16 @@ public class ProyectoCheckInCheckOut {
         Equipaje ClaseEquipaje =new Equipaje();
         ClaseEquipaje.MensajeA();
         
-         //Tripulacion
+        //Tripulacion
         Tripulacion ClaseTripulacion =new Tripulacion();
         ClaseTripulacion.MensajeA();
+     
+        //Vuelos 
+        Vuelos ClaseVuelos= new Vuelos(); 
+        ClaseVuelos.MensajeB();
+        //Asientos 
+        Asientos ClaseAsientos= new Asientos();
+        ClaseAsientos.MensajeC();
      
         
         
