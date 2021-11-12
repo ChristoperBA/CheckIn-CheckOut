@@ -1,7 +1,5 @@
-/*
 
- */
-package servicios.médicos.horizonte;
+package proyecto.checkin.checkout;
 
 import javax.swing.JOptionPane;
 public class Costo 
