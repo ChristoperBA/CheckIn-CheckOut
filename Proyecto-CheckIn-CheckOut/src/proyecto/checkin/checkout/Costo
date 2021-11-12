@@ -1,0 +1,21 @@
+/*
+
+ */
+package servicios.médicos.horizonte;
+
+import javax.swing.JOptionPane;
+public class Costo 
+{
+    //Atributos
+  private double costo;
+  private String ID;
+  private int NAsientos;
+  private double Total;
+  
+  //Metodo Mensajes
+  
+   public void MensajeA() 
+   {
+   JOptionPane.showMessageDialog(null, "Clase Costo");    
+}
+}
