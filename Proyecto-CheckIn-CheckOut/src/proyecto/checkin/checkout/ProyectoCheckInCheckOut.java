@@ -59,7 +59,10 @@ public class ProyectoCheckInCheckOut {
         //Asientos 
         Asientos ClaseAsientos= new Asientos();
         ClaseAsientos.MensajeC();
-     
+        
+        //Costo
+        Costo ClaseCosto= new Costo();
+        ClaseCosto.MensajeA();
         
         
         
