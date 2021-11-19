@@ -36,9 +36,11 @@ public class ProyectoCheckInCheckOut {
                 JOptionPane.showMessageDialog(null,"Usuario Incorrecto");
             }
         
-            
+            System.out.println("Prueba");
+
         }
         
+
         //Iteracion de las clases
         
         //Pasajeros
