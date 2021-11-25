@@ -36,7 +36,7 @@ public class ProyectoCheckInCheckOut {
                 JOptionPane.showMessageDialog(null,"Usuario Incorrecto");
             }
         
-            System.out.println("Prueba");
+            System.out.println("Prueba Chris");
 
         }
         
