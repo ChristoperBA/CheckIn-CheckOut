@@ -7,14 +7,30 @@ import javax.swing.JOptionPane;
 public class Equipaje 
 {
     //Atributos
-    private String Color;
-    private String ID;
-    private String NVuelo;
-    private double Peso;
+    public String NumeroEspacio;
+    public String Color;
+    public String NVuelo;
+    public double Peso;
     
     //Metodo Mensajes
-    public void MensajeA()
+    public void RegistrarEquipaje()
     {
-        JOptionPane.showMessageDialog(null,"Clase Equipaje");
+        JOptionPane.showMessageDialog(null,"Registrar Equipaje");
     }
+    public void BuscarEquipaje()
+    {
+        JOptionPane.showMessageDialog(null,"Buscar Equipaje");
+    }
+    public void VerEquipaje()
+    {
+        JOptionPane.showMessageDialog(null,"Ver Equipajes");
+    }
+
+
+
+
+
+
+
+
 }

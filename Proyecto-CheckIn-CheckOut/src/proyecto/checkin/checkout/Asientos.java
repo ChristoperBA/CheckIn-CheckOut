@@ -7,10 +7,10 @@ import javax.swing.JOptionPane;
 
 
 public class Asientos 
-{
-    //Atributos
-            private String Pasajeros;
-            private String ID;
+{   
+            String[][] Asientos = new String[4][10];
+            //Atributos
+            private String Pasajero;
             private String Ocupados;
             private String Libres;
             

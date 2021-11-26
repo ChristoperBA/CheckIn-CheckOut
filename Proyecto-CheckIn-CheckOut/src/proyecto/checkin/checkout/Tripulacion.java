@@ -7,14 +7,35 @@ import javax.swing.JOptionPane;
 public class Tripulacion 
 {
     //Atributos
-    private String Nombre;
-    private String ID;
-    private String Puesto;
-    private String NVuelo;
+    public String NumeroAsiento;
+    public String Nombre;
+    public String Apellidos;
+    public String Puesto;
+    public String NVuelo;
     
     //Metodo Mensajes
-    public void MensajeA()
+    public void RegistrarTripulante()
     {
-        JOptionPane.showMessageDialog(null,"Clase Tripulación");
+        JOptionPane.showMessageDialog(null,"Registrar Tripulante");
     }
+    
+    public void VerTripulante()
+    {
+        JOptionPane.showMessageDialog(null,"Ver Tripulantes");
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
