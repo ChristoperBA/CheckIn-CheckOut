@@ -6,197 +6,169 @@ package proyecto.checkin.checkout;
 import javax.swing.JOptionPane;
 
 
-public class ProyectoCheckInCheckOut {
-
-    
+public class ProyectoCheckInCheckOut 
+{
     public static void main(String[] args)
+            {
+               // Acceso(); NO BORRAR
+                Menu();
+        
+            }//fin del main
+
+    //Inicio de Acceso
+    /*NO BORRAR
+    public static void Acceso()
     {
-        
-        Pasajeros FIDE_CLASE= new Pasajeros(null, null, null, null, null);
-        
-        FIDE_CLASE.Prueba();
-        
-        
-
-       //Acceso al Software de Control
-       /* NO BORRAR
-       int i=1;
-        while (i<2)
-        {
-        
-            String Usuario=JOptionPane.showInputDialog("Usuario ");
-            if (Usuario.equals("admin"))
+        int p=1;
+        while (p<2)
             {
-                    String password=JOptionPane.showInputDialog("Digite su contraseña");
-                    if (password.equals("123"))
-                    {
-                        JOptionPane.showMessageDialog(null,"Bienvenido Admin ");
-                        break;
-                    }
-                    else
-                    {
-                             JOptionPane.showMessageDialog(null,"La contraseña es incorrecta, Intentalo nuevamente ");
-                    }
-            }
-            else 
-            {
-                JOptionPane.showMessageDialog(null,"Usuario Incorrecto");
-            }
-        }//Fin while acceso
-
-        NO BORRAR */
-
-        //Inicio del Menu
-        
-        int a=1;
-        while (a<2)
-        {
-            String opcion= JOptionPane.showInputDialog(null,"____________________"+"Menu del Sistema"+"____________________\n"
-            +"\n[1] Control Pasajeros"+"\n[2] Control Equipaje"+"\n[3] Control Tripulantes"+"\n[4] Falta*********"+
-            "\n[5] Falta**********"+"\n[7] Salir del sistema");
-            
-            if (opcion.equals("1"))
-            {
-                int b=2;
-                while (b<2)
+                String Usuario=JOptionPane.showInputDialog("Usuario ");
+                if (Usuario.equals("admin"))
                 {
-                    String OpcionPasajeros= JOptionPane.showInputDialog(null,"____________________"+"Menu Pasajeros"+"____________________"
-                    +"\n[1] Registrar Pasajero"+"\n[2] Buscar Pasajero"+"\n[3] Ver todos Pasajeros"+"\n[4] Salir Menu Pasajeros");
-                    if (OpcionPasajeros.equals("1"))
-                    {
-                        JOptionPane.showMessageDialog(null,"Registrar Pasajeros");
-                    }
-                    else if (OpcionPasajeros.equals("2"))
-                    {
-                        JOptionPane.showMessageDialog(null,"Buscar Pasajeros");
-                    }
-                    else if (OpcionPasajeros.equals("3"))
-                    {
-                        JOptionPane.showMessageDialog(null,"Ver Todos Pasajeros");
-                    }
-                    else if (OpcionPasajeros.equals("4"))
-                    {
-                        JOptionPane.showMessageDialog(null,"Saliendo del Menu de Pasajeros");
-                        break;
-                    }   
+                        String password=JOptionPane.showInputDialog("Digite su contraseña");
+                        if (password.equals("123"))
+                        {
+                            JOptionPane.showMessageDialog(null,"Bienvenido Admin ");
+                            break;
+                        }
+                        else
+                        {
+                                JOptionPane.showMessageDialog(null,"La contraseña es incorrecta, Intentalo nuevamente ");
+                        }
                 }
-
-            }
-            else if (opcion.equals("2"))
-            {
-                int c=2;
-                while (c<2)
+                else 
                 {
-                    String OpcionEquipaje= JOptionPane.showInputDialog(null,"____________________"+"Menu Equipaje"+"____________________"
-                    +"\n[1] Registrar Equipaje"+"\n[2] Buscar Equipaje"+"\n[3] Ver todos Equipaje"+"\n[4] Salir Menu Equipaje");
-                    if (OpcionEquipaje.equals("1"))
-                    {
-                        JOptionPane.showMessageDialog(null,"Registrar Equipaje");
-                    }
-                    else if (OpcionEquipaje.equals("2"))
-                    {
-                        JOptionPane.showMessageDialog(null,"Buscar Equipaje");
-                    }
-                    else if (OpcionEquipaje.equals("3"))
-                    {
-                        JOptionPane.showMessageDialog(null,"Ver Todos Equipaje");
-                    }
-                    else if (OpcionEquipaje.equals("4"))
-                    {
-                        JOptionPane.showMessageDialog(null,"Saliendo del Menu de Equipaje...");
-                        break;
-                    }   
+                    JOptionPane.showMessageDialog(null,"Usuario Incorrecto");
                 }
             }
-                       
-            else if (opcion.equals("3"))
+    }
+    NO BORRAR */
+
+    //Inicio Del Menú
+    public static void Menu()
+        {
+            //Se instancias las Clases
+            Pasajeros pasajeros=new Pasajeros();
+            Equipaje equipaje= new Equipaje();
+            Tripulacion tripulacion=new Tripulacion();
+
+
+            int opcion;
+            do
             {
-                int d=2;
-                while (d<2)
+                opcion= Integer.parseInt(JOptionPane.showInputDialog(null,"____________________"+"Menu del Sistema"+"____________________\n"
+                +"\n[1] Control Pasajeros"+"\n[2] Control Equipaje"+"\n[3] Control Tripulantes"+"\n[4] Falta*********"+
+                "\n[5] Falta**********"+"\n[7] Salir del sistema"));
+                
+                switch(opcion)
                 {
-                    String OpcionTripulante= JOptionPane.showInputDialog(null,"____________________"+"Menu Equipaje"+"____________________"
-                    +"\n[1] Registrar Tribulante"+"\n[2] Buscar Tripulante"+"\n[3] Ver todos los Tripulante"+"\n[4] Salir Menu Tripulante");
-                    if (OpcionTripulante.equals("1"))
-                    {
-                        JOptionPane.showMessageDialog(null,"Registrar Tripulante");
-                    }
-                    else if (OpcionTripulante.equals("2"))
-                    {
-                        JOptionPane.showMessageDialog(null,"Buscar Tripulante");
-                    }
+                    case 1:
+                        int OpcionPasajeros;
+                        do
+                        {
+                            
+                            OpcionPasajeros= Integer.parseInt(JOptionPane.showInputDialog(null,"____________________"+"Menu Pasajeros"+"____________________"+
+                            "\n[1] Registrar Pasajero"+"\n[2] Buscar Pasajero"+"\n[3] Ver todos Pasajeros"+"\n[4] Salir Menu Pasajeros"));
+                            switch(OpcionPasajeros)
+                            {
+                                case 1:
+                                {
+                                    pasajeros.RegistrarPasajero();
+                                    break;
+                                }
+                                case 2:
+                                {   
+                                    pasajeros.BuscarPasajero();
+                                    break;
+                                }
+                                case 3:
+                                {
+                                    pasajeros.VerPasajeros();
+                                    break;
+                                }
+                                case 4:
+                                {
+                                    JOptionPane.showMessageDialog(null,"Saliendo del Menu de Pasajeros");
+                                    break;
+                                    
+                                }
+                                default:
+                                {
+                                    JOptionPane.showMessageDialog(null,"Opcion invalida");
+                                    
+                                }   
+                            }
+                        }while(OpcionPasajeros!=4);
+                    break;
+                 case 2:
                     
-                    else if (OpcionTripulante.equals("3"))
-                    {
-                        JOptionPane.showMessageDialog(null,"Saliendo del Menu de Tripulante");
+                        int OpcionEquipaje;
+                        do
+                        {
+                            OpcionEquipaje= Integer.parseInt(JOptionPane.showInputDialog(null,"____________________"+"Menu Equipaje"+"____________________"
+                            +"\n[1] Registrar Equipaje"+"\n[2] Buscar Equipaje"+"\n[3] Ver todos Equipaje"+"\n[4] Salir Menu Equipaje"));
+                            switch(OpcionEquipaje)
+                            {
+                                case 1:
+                                    equipaje.RegistrarEquipaje();
+                                    break;
+                                case 2:
+                                    equipaje.BuscarEquipaje();
+                                    break;
+                                case 3:
+                                    equipaje.VerEquipaje();
+                                    break;
+                                case 4:
+                                    JOptionPane.showMessageDialog(null,"Saliendo del Menu de Equipaje...");
+                                    break; 
+                            }  
+                        }while(OpcionEquipaje!=4);
+                    
                         break;
-                    }   
+                        
+                 case 3:
+                    
+                        int OpcionTripulante;
+                        do
+                        {
+                            OpcionTripulante= Integer.parseInt(JOptionPane.showInputDialog(null,"____________________"+"Menu Equipaje"+"____________________"
+                            +"\n[1] Registrar Tribulante"+"\n[2] Buscar Tripulante"+"\n[3] Ver todos los Tripulante"+"\n[4] Salir Menu Tripulante"));
+                            switch(OpcionTripulante)
+                            {
+                                case 1:
+                                    tripulacion.RegistrarTripulante();
+                                    break;
+                                case 2:
+                                    tripulacion.VerTripulante();
+                                    break;
+                                case 3:
+                                    JOptionPane.showMessageDialog(null,"Saliendo del Menu de Tripulante");
+                                    break;   
+                            }      
+                        } while(OpcionTripulante!=3);
+                        break;
+                 case 4:
+                        JOptionPane.showMessageDialog(null,"Opcion 4");
+                        break;
+                 case 5:
+                    
+                        JOptionPane.showMessageDialog(null,"Opcion 5");
+                        break;
+                 case 6:
+                        JOptionPane.showMessageDialog(null,"Opcion 6");
+                        break;
+                 case 7:
+                        JOptionPane.showMessageDialog(null,"Cerrando Programa...\n"+
+                        "El programa fue cerrado con exito\n"+
+                        "___________________________Fin del programa___________________________");
+                        break;
+                    default:
+                        JOptionPane.showMessageDialog(null,"Opcion Invalida, Intentelo nuevamente");
+                        break;
                 }
-            }
-                   
-            else if (opcion.equals("4"))
-            {
-                JOptionPane.showMessageDialog(null,"Opcion 4");
-            }
-                
-            else if (opcion.equals("5"))
-            {
-                JOptionPane.showMessageDialog(null,"Opcion 5");
-            }
-                
-            else if (opcion.equals("6"))
-            {
-                JOptionPane.showMessageDialog(null,"Opcion 6");
-            }
-            else if (opcion.equals("7"))
-            {
-                JOptionPane.showMessageDialog(null,"Cerrando Programa...\n");
-                JOptionPane.showMessageDialog(null,"El programa fue cerrado con exito\n ");
-                JOptionPane.showMessageDialog(null,"___________________________Fin del programa___________________________");
-            }
-                
-            else
-            {
-                JOptionPane.showMessageDialog(null,"Opcion Invalida, Intentelo nuevamente");
-            }
-        
 
-
-        }//Fin while Menu
+            }while (opcion!=7);//Fin While Menú
         
-    
-  
-    
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-       
-    }//fin del main
-    
+        }//Contenido Menú
     
 }//Fin clase ProyectoCheckin/Checkout
