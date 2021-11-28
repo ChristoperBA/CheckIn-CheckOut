@@ -8,6 +8,7 @@ import javax.swing.JOptionPane;
 
 public class Asientos 
 {   
+          /*
             String[][] Asientos = new String[4][10];
             //Atributos
             private String Pasajero;
@@ -19,7 +20,7 @@ public class Asientos
               {
                JOptionPane.showMessageDialog(null, "Clase Asientos");  
               }
-    
+            */
     
    
 }

@@ -14,6 +14,7 @@ public class Equipaje
     public String Color;
     public String NVuelo;
     public String Peso;
+    public Estados Estado;
 
     //Metodos
     public Equipaje(String FilaBodega, String ColumnaBodega, String Color, String NVuelo,String Peso) 
@@ -33,6 +34,7 @@ public class Equipaje
         Color = "";
         NVuelo = "";
         Peso = "";
+        Estado=Estados.Disponible;
     }
     //Constructor que llene los espacio vacios
     public void LlenadoVacio()
@@ -54,11 +56,19 @@ public class Equipaje
             String temp=FilaBodega;
             int Fila=word.indexOf(temp);
             String ColumnaBodega =JOptionPane.showInputDialog("Escriba la Columna de la Bodega [1-20]: ");
-            int colu=Integer.parseInt(ColumnaBodega);
+            int Colu=Integer.parseInt(ColumnaBodega)-1;
+            //if 
             String Color = JOptionPane.showInputDialog("Escriba el color del Equipaje: ");
             String NVuelo = JOptionPane.showInputDialog("Escriba el numero de Vuelo: ");
             String Peso= JOptionPane.showInputDialog("Escriba el peso del equipaje: ");
-            Espacio[Fila-1][colu-1]= new Equipaje(FilaBodega,ColumnaBodega,Color,NVuelo,Peso);
+            //Espacio[Fila][colu]= new Equipaje(FilaBodega,ColumnaBodega,Color,NVuelo,Peso);
+            Espacio[Fila][Colu].FilaBodega=FilaBodega;
+            Espacio[Fila][Colu].ColumnaBodega=ColumnaBodega;
+            Espacio[Fila][Colu].Color=Color;
+            Espacio[Fila][Colu].NVuelo=NVuelo;
+            Espacio[Fila][Colu].Peso=Peso;
+            Espacio[Fila][Colu].Estado=Estados.Ocupado;
+    
     }
     public void BuscarEquipaje()
     {

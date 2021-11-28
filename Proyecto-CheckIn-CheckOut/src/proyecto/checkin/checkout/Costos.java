@@ -1,9 +1,10 @@
 
 package proyecto.checkin.checkout;
 
-import javax.swing.JOptionPane;
+//import javax.swing.JOptionPane;
 public class Costos 
 {
+    /*
 //Atributos
     private int valor;
     private String ID;
@@ -15,4 +16,5 @@ public class Costos
     {
         JOptionPane.showMessageDialog(null,"Clase Costos");
     }
+}*/
 }

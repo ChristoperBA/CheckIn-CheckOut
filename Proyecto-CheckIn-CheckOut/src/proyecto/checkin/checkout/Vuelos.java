@@ -7,7 +7,7 @@ import javax.swing.JOptionPane;
 
 
 public class Vuelos 
-{
+{/*
      //Atributos
      private String Nombre;
      private String ID;
@@ -18,7 +18,7 @@ public class Vuelos
     public void MensajeB()
     {
         JOptionPane.showMessageDialog(null, "Clase Vuelos");  
-    }
+    }*/
     
     
     

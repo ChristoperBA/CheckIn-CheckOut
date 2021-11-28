@@ -52,9 +52,9 @@ public class ProyectoCheckInCheckOut
             Equipaje equipaje= new Equipaje();
             Tripulacion tripulacion=new Tripulacion();
 
-
+            boolean salir = false;
             int opcion;
-            do
+            while(!salir)
             {
                 opcion= Integer.parseInt(JOptionPane.showInputDialog(null,"____________________"+"Menu del Sistema"+"____________________\n"
                 +"\n[1] Control Pasajeros"+"\n[2] Control Equipaje"+"\n[3] Control Tripulantes"+"\n[4] Falta*********"+
@@ -80,11 +80,15 @@ public class ProyectoCheckInCheckOut
                                 {   
                                     pasajeros.BuscarPasajero();
                                     break;
+                                    
+                                    
                                 }
                                 case 3:
                                 {
                                     pasajeros.VerPasajeros();
                                     break;
+                                    
+                                    
                                 }
                                 case 4:
                                 {
@@ -99,7 +103,8 @@ public class ProyectoCheckInCheckOut
                                 }   
                             }
                         }while(OpcionPasajeros!=4);
-                    break;
+                        break;
+                       
                  case 2:
                     
                         int OpcionEquipaje;
@@ -111,63 +116,70 @@ public class ProyectoCheckInCheckOut
                             {
                                 case 1:
                                     equipaje.RegistrarEquipaje();
-                                    break;
+
+                                    
                                 case 2:
                                     equipaje.BuscarEquipaje();
-                                    break;
+                                    
                                 case 3:
                                     equipaje.VerEquipaje();
-                                    break;
+                                    
                                 case 4:
                                     JOptionPane.showMessageDialog(null,"Saliendo del Menu de Equipaje...");
-                                    break; 
+                                    break;
+                                default:
+                                    JOptionPane.showMessageDialog(null,"Opcion Invalida, Intentelo nuevamente");
+                                     
                             }  
                         }while(OpcionEquipaje!=4);
-                    
                         break;
+                        
                         
                  case 3:
                     
                         int OpcionTripulante;
                         do
                         {
-                            OpcionTripulante= Integer.parseInt(JOptionPane.showInputDialog(null,"____________________"+"Menu Equipaje"+"____________________"
-                            +"\n[1] Registrar Tribulante"+"\n[2] Buscar Tripulante"+"\n[3] Ver todos los Tripulante"+"\n[4] Salir Menu Tripulante"));
+                            OpcionTripulante= Integer.parseInt(JOptionPane.showInputDialog(null,"____________________"+"Menu Tripulante"+"____________________"
+                            +"\n[1] Registrar Tripulante"+"\n[2] Buscar Tripulante"+"\n[3] Ver todos los Tripulante"+"\n[4] Salir Menu Tripulante"));
                             switch(OpcionTripulante)
                             {
                                 case 1:
                                     tripulacion.RegistrarTripulante();
-                                    break;
+                                    
                                 case 2:
                                     tripulacion.VerTripulante();
-                                    break;
+                                    
                                 case 3:
                                     JOptionPane.showMessageDialog(null,"Saliendo del Menu de Tripulante");
-                                    break;   
+                                    break;  
+                                default:
+                                    JOptionPane.showMessageDialog(null,"Opcion Invalida, Intentelo nuevamente"); 
                             }      
-                        } while(OpcionTripulante!=3);
-                        break;
+                        } while(OpcionTripulante==3);
+                    break;  
                  case 4:
                         JOptionPane.showMessageDialog(null,"Opcion 4");
-                        break;
+                        
                  case 5:
                     
                         JOptionPane.showMessageDialog(null,"Opcion 5");
-                        break;
+                        
                  case 6:
                         JOptionPane.showMessageDialog(null,"Opcion 6");
-                        break;
+                        
                  case 7:
+                        salir=true;
                         JOptionPane.showMessageDialog(null,"Cerrando Programa...\n"+
-                        "El programa fue cerrado con exito\n"+
+                        "El programa fue cerrado con exito\n\n"+
                         "___________________________Fin del programa___________________________");
                         break;
                     default:
                         JOptionPane.showMessageDialog(null,"Opcion Invalida, Intentelo nuevamente");
-                        break;
+                        
                 }
 
-            }while (opcion!=7);//Fin While Menú
+            }
         
         }//Contenido Menú
     
