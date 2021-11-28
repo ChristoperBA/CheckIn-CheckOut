@@ -15,10 +15,11 @@ public class Tripulacion
     public String Apellidos;
     public String Puesto;
     public String NVuelo;
-    public Estados Estado;
+    public String Estado;
+    
 
     //Metodos
-    public Tripulacion(String FilaATripulacion, String ColumnaATripulacion, String Nombre, String Apellidos,String Puesto,String NVuelo) 
+    public Tripulacion(String FilaATripulacion, String ColumnaATripulacion, String Nombre, String Apellidos,String Puesto,String NVuelo,String Estado) 
     {                      
         this.FilaATripulacion=FilaATripulacion;
         this.ColumnaATripulacion=ColumnaATripulacion;
@@ -26,6 +27,8 @@ public class Tripulacion
         this.Apellidos=Apellidos;
         this.NVuelo=NVuelo;
         this.Puesto=Puesto;
+        this.Estado=Estado;
+
     }
     //Constructores
     public Tripulacion()
@@ -36,7 +39,8 @@ public class Tripulacion
         Apellidos="";
         Puesto = "";
         NVuelo = "";
-        Estado=Estados.Disponible;
+        Estado="0";
+        
     }
     //Constructor que llene los espacio vacios
     public void LlenadoVacio()
@@ -61,19 +65,20 @@ public class Tripulacion
             int Fila=word.indexOf(temp);
             String ColumnaATripulacion =JOptionPane.showInputDialog("Escriba la Columna de la Bodega [1-20]: ");
             int Colu=Integer.parseInt(ColumnaATripulacion)-1;
-            //if 
-            String Nombre = JOptionPane.showInputDialog("Escriba su nombre: ");
-            String Apellidos = JOptionPane.showInputDialog("Escriba sus apellido: ");
-            String NVuelo = JOptionPane.showInputDialog("Escriba el numero de Vuelo: ");
-            String Puesto= JOptionPane.showInputDialog("Escriba el puesto del tripulante: ");
-            //Espacio[Fila][colu]= new Equipaje(FilaBodega,ColumnaBodega,Color,NVuelo,Peso);
-            AsientoTripulante[Fila][Colu].FilaATripulacion=FilaATripulacion;
-            AsientoTripulante[Fila][Colu].ColumnaATripulacion=ColumnaATripulacion;
-            AsientoTripulante[Fila][Colu].Nombre=Nombre;
-            AsientoTripulante[Fila][Colu].Apellidos=Apellidos;
-            AsientoTripulante[Fila][Colu].NVuelo=NVuelo;
-            AsientoTripulante[Fila][Colu].Puesto=Puesto;
-            AsientoTripulante[Fila][Colu].Estado=Estados.Ocupado;
+            if ( AsientoTripulante[Fila][Colu].Estado=="0" )
+            {
+                String Nombre = JOptionPane.showInputDialog("Escriba su nombre: ");
+                String Apellidos = JOptionPane.showInputDialog("Escriba sus apellido: ");
+                String NVuelo = JOptionPane.showInputDialog("Escriba el numero de Vuelo: ");
+                String Puesto= JOptionPane.showInputDialog("Escriba el puesto del tripulante: ");
+                String Estado ="1";
+                AsientoTripulante[Fila][Colu]= new Tripulacion(FilaATripulacion,ColumnaATripulacion,Nombre,Apellidos,NVuelo,Puesto,Estado);
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(null,"Lo lamentamos, el campo elegido ya ha sido ocupado por otro Tripulante\nIntentelo nuevamente :( ");
+            }
+            
     }
     
     public void VerTripulante()
@@ -95,4 +100,4 @@ public class Tripulacion
 
 
 
-}
+}//Fin clase Tripulación

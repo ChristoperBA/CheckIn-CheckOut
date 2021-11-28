@@ -10,6 +10,7 @@ public class ProyectoCheckInCheckOut
 {
     public static void main(String[] args)
             {
+                
                // Acceso(); NO BORRAR
                 Menu();
         
@@ -41,17 +42,25 @@ public class ProyectoCheckInCheckOut
                     JOptionPane.showMessageDialog(null,"Usuario Incorrecto");
                 }
             }
-    }
-    NO BORRAR */
+            
+    }*/
+    
 
     //Inicio Del Menú
     public static void Menu()
         {
+            
             //Se instancias las Clases
             Pasajeros pasajeros=new Pasajeros();
             Equipaje equipaje= new Equipaje();
             Tripulacion tripulacion=new Tripulacion();
 
+            //Se instancian los llenados de los arrays utilizados 
+            pasajeros.LlenadoVacio();
+            equipaje.LlenadoVacio();
+            tripulacion.LlenadoVacio();
+
+            //Inicio del ciclo del Menú
             boolean salir = false;
             int opcion;
             while(!salir)
@@ -59,14 +68,12 @@ public class ProyectoCheckInCheckOut
                 opcion= Integer.parseInt(JOptionPane.showInputDialog(null,"____________________"+"Menu del Sistema"+"____________________\n"
                 +"\n[1] Control Pasajeros"+"\n[2] Control Equipaje"+"\n[3] Control Tripulantes"+"\n[4] Falta*********"+
                 "\n[5] Falta**********"+"\n[7] Salir del sistema"));
-                
                 switch(opcion)
                 {
                     case 1:
                         int OpcionPasajeros;
                         do
-                        {
-                            
+                        {  
                             OpcionPasajeros= Integer.parseInt(JOptionPane.showInputDialog(null,"____________________"+"Menu Pasajeros"+"____________________"+
                             "\n[1] Registrar Pasajero"+"\n[2] Buscar Pasajero"+"\n[3] Ver todos Pasajeros"+"\n[4] Salir Menu Pasajeros"));
                             switch(OpcionPasajeros)
@@ -80,15 +87,12 @@ public class ProyectoCheckInCheckOut
                                 {   
                                     pasajeros.BuscarPasajero();
                                     break;
-                                    
-                                    
                                 }
                                 case 3:
                                 {
                                     pasajeros.VerPasajeros();
                                     break;
-                                    
-                                    
+
                                 }
                                 case 4:
                                 {
@@ -103,10 +107,8 @@ public class ProyectoCheckInCheckOut
                                 }   
                             }
                         }while(OpcionPasajeros!=4);
-                        break;
-                       
+                        break;    
                  case 2:
-                    
                         int OpcionEquipaje;
                         do
                         {
@@ -116,20 +118,20 @@ public class ProyectoCheckInCheckOut
                             {
                                 case 1:
                                     equipaje.RegistrarEquipaje();
-
-                                    
+                                    break; 
                                 case 2:
                                     equipaje.BuscarEquipaje();
+                                    break;
                                     
                                 case 3:
                                     equipaje.VerEquipaje();
+                                    break;
                                     
                                 case 4:
                                     JOptionPane.showMessageDialog(null,"Saliendo del Menu de Equipaje...");
                                     break;
                                 default:
-                                    JOptionPane.showMessageDialog(null,"Opcion Invalida, Intentelo nuevamente");
-                                     
+                                    JOptionPane.showMessageDialog(null,"Opcion Invalida, Intentelo nuevamente");   
                             }  
                         }while(OpcionEquipaje!=4);
                         break;
@@ -146,9 +148,11 @@ public class ProyectoCheckInCheckOut
                             {
                                 case 1:
                                     tripulacion.RegistrarTripulante();
+                                    break;
                                     
                                 case 2:
                                     tripulacion.VerTripulante();
+                                    break;
                                     
                                 case 3:
                                     JOptionPane.showMessageDialog(null,"Saliendo del Menu de Tripulante");
@@ -177,10 +181,10 @@ public class ProyectoCheckInCheckOut
                     default:
                         JOptionPane.showMessageDialog(null,"Opcion Invalida, Intentelo nuevamente");
                         
-                }
+                }//Fin Switch Principal
 
-            }
-        
+            }//Fin del While Menú
+
         }//Contenido Menú
     
 }//Fin clase ProyectoCheckin/Checkout

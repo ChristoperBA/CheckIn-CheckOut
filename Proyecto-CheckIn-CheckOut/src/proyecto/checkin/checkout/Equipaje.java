@@ -12,18 +12,20 @@ public class Equipaje
     public String FilaBodega;
     public String ColumnaBodega;
     public String Color;
-    public String NVuelo;
+    public String NAsiento;
     public String Peso;
-    public Estados Estado;
+    public String Estado;
+    
 
     //Metodos
-    public Equipaje(String FilaBodega, String ColumnaBodega, String Color, String NVuelo,String Peso) 
+    public Equipaje(String FilaBodega, String ColumnaBodega, String Color, String NAsiento,String Peso,String Estado) 
     {                      
         this.FilaBodega=FilaBodega;
         this.ColumnaBodega=ColumnaBodega;
         this.Color=Color;
-        this.NVuelo=NVuelo;
+        this.NAsiento=NAsiento;
         this.Peso=Peso;
+        this.Estado=Estado;
     }
 
     //Constructores
@@ -32,9 +34,10 @@ public class Equipaje
         FilaBodega="";
         ColumnaBodega="";
         Color = "";
-        NVuelo = "";
+        NAsiento = "";
         Peso = "";
-        Estado=Estados.Disponible;
+        Estado="0";
+        
     }
     //Constructor que llene los espacio vacios
     public void LlenadoVacio()
@@ -51,23 +54,27 @@ public class Equipaje
     //Metodo Mensajes
     public void RegistrarEquipaje()
     {
-            String FilaBodega =JOptionPane.showInputDialog("Escriba la Fila de la Bodega[A-B-C-D]: ");
+            String FilaBodega =JOptionPane.showInputDialog("Escriba la Fila de la Bodega[ A-B-C-D ]: ");
             String word= "ABCD";
             String temp=FilaBodega;
             int Fila=word.indexOf(temp);
-            String ColumnaBodega =JOptionPane.showInputDialog("Escriba la Columna de la Bodega [1-20]: ");
+            String ColumnaBodega =JOptionPane.showInputDialog("Escriba la Columna de la Bodega [ 1-20 ]: ");
             int Colu=Integer.parseInt(ColumnaBodega)-1;
-            //if 
-            String Color = JOptionPane.showInputDialog("Escriba el color del Equipaje: ");
-            String NVuelo = JOptionPane.showInputDialog("Escriba el numero de Vuelo: ");
-            String Peso= JOptionPane.showInputDialog("Escriba el peso del equipaje: ");
-            //Espacio[Fila][colu]= new Equipaje(FilaBodega,ColumnaBodega,Color,NVuelo,Peso);
-            Espacio[Fila][Colu].FilaBodega=FilaBodega;
-            Espacio[Fila][Colu].ColumnaBodega=ColumnaBodega;
-            Espacio[Fila][Colu].Color=Color;
-            Espacio[Fila][Colu].NVuelo=NVuelo;
-            Espacio[Fila][Colu].Peso=Peso;
-            Espacio[Fila][Colu].Estado=Estados.Ocupado;
+            //Creamos un if para verificar, si el espacio esta vacio
+            if( Espacio[Fila][Colu].Estado=="0" )
+                {
+                    String Color = JOptionPane.showInputDialog("Escriba el color del Equipaje: ");
+                    String NVuelo = JOptionPane.showInputDialog("Escriba el numero de Asiento: ");
+                    String Peso= JOptionPane.showInputDialog("Escriba el peso del equipaje: ");
+                    String Estado ="1";
+                    Espacio[Fila][Colu]= new Equipaje(FilaBodega,ColumnaBodega,Color,NVuelo,Peso,Estado);
+                    JOptionPane.showMessageDialog(null,"El equipaje de color: "+Color+" con un Peso:"+Peso+"y su dueño porta el numero de Asiento: "+NAsiento+"\n Ha sido registrado con exito :)");
+                }
+            else
+                {
+                    JOptionPane.showMessageDialog(null,"Lo lamentamos, el campo elegido esta lleno\nIntentelo nuevamente :(");
+                }
+            
     
     }
     public void BuscarEquipaje()
@@ -86,4 +93,4 @@ public class Equipaje
 
 
 
-}
+}//Fin clase Equipaje

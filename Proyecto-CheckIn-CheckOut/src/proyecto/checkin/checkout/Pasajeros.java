@@ -13,9 +13,9 @@ public class Pasajeros
     public String Nombre;
     public String Apellidos;
     public String Ciudadania;
-    public Estados estado;
+    public String Estado;
 
-    private boolean b;
+    
 
     //Constructor
     public Pasajeros()
@@ -25,9 +25,9 @@ public class Pasajeros
         Nombre = "";
         Apellidos = "";
         Ciudadania = "";
-        estado=Estados.Disponible;
+        Estado= "0";
     }
-    //Constructor que llene los asientos en blanc   o
+    //Constructor que llene los asientos en blanco
     public void LlenadoVacio()
     {
         for (int i=0;i<4;i++)
@@ -40,59 +40,43 @@ public class Pasajeros
     }
     //Metodos
     
-    public Pasajeros(String FiladeAsiento,String ColumnadeAsiento, String Nombre, String Apellidos,String Ciudadania,Estados estado) 
+    public Pasajeros(String FiladeAsiento,String ColumnadeAsiento, String Nombre, String Apellidos,String Ciudadania,String Estado) 
     {
         this.FiladeAsiento=FiladeAsiento;
         this.ColumnadeAsiento=ColumnadeAsiento;
         this.Nombre = Nombre;
         this.Apellidos = Apellidos;
         this.Ciudadania = Ciudadania;
-        this.estado=Estados.Disponible;
+        this.Estado =Estado;
     }  
-    
-        
-
-    
-    
     
     //Metodo de registro de Pasajeros
     public void RegistrarPasajero() 
     {       
                 //Le pedimos al usuario que Ingrese el numero de fila y columna
-                String FiladeAsiento =JOptionPane.showInputDialog("Escriba su Fila de Asiento[A-B-C-D]");
+                String FiladeAsiento =JOptionPane.showInputDialog("Escriba su Fila de Asiento[ A-B-C-D ]");
                 String word= "ABCD";
                 String temp=FiladeAsiento;
                 int Fila=word.indexOf(temp);
-                String ColumnadeAsiento =JOptionPane.showInputDialog("Escriba su Columna del asiento [1-20]");
+                String ColumnadeAsiento =JOptionPane.showInputDialog("Escriba su Columna del asiento [ 1-20 ]");
                 int Colu=Integer.parseInt(ColumnadeAsiento)-1;
 
                 //Hacemos una comprobacion por si el campo ya fue elegido
-                //Error b = Asientos[Fila][Colu].estado == Estados.Disponible;
-                if( b)
+                
+                if( Asientos[Fila][Colu].Estado=="0" )
                 {
 
                 String Nombre = JOptionPane.showInputDialog("Escriba su nombre: ");
                 String Apellidos = JOptionPane.showInputDialog("Escriba su Apellido: ");
                 String Ciudadania= JOptionPane.showInputDialog("Escriba su Ciudadania: ");
-                
-                //Asientos[Fila][Colu]= new Pasajeros(FiladeAsiento,ColumnadeAsiento,Nombre,Apellidos,Ciudadania,Estados.Ocupado);
-                //JOptionPane.showMessageDialog(null,"El pasajero"+Nombre+" "+Apellidos+"con Ciudadania"+Ciudadania+"ha sido registrado con exito en el Asiento"+FiladeAsiento+ColumnadeAsiento);
-                
-                
-                Asientos[Fila][Colu].FiladeAsiento=FiladeAsiento;
-                Asientos[Fila][Colu].ColumnadeAsiento=ColumnadeAsiento;
-                Asientos[Fila][Colu].Nombre=Nombre;
-                Asientos[Fila][Colu].Apellidos=Apellidos;
-                Asientos[Fila][Colu].Ciudadania=Ciudadania;
-                Asientos[Fila][Colu].estado=Estados.Ocupado;
-                JOptionPane.showMessageDialog(null,"El pasajero"+Nombre+" "+Apellidos+"con Ciudadania"+Ciudadania+"ha sido registrado con exito en el Asiento"+FiladeAsiento+ColumnadeAsiento);
+                String Estado ="1";
+                Asientos[Fila][Colu]= new Pasajeros(FiladeAsiento,ColumnadeAsiento,Nombre,Apellidos,Ciudadania,Estado);
+                JOptionPane.showMessageDialog(null,"El pasajero: "+Nombre+" "+Apellidos+" con Ciudadania: "+Ciudadania+" y Numero de Asiento:  "+FiladeAsiento+ColumnadeAsiento+"\n Ha sido registrado con exito :)");
                
                 }
                 else
                 {
-                    JOptionPane.showMessageDialog(null,"Lo lamentamos, el campo elegido ya ha sido ocupado\nIntentelo Nuevamente ");
-
-
+                    JOptionPane.showMessageDialog(null,"Lo lamentamos, el campo elegido ya ha sido ocupado por otro Pasajero\nIntentelo nuevamente :( ");
                 }
                 
     
