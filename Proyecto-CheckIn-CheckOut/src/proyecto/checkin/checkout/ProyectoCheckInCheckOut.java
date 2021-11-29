@@ -143,7 +143,7 @@ public class ProyectoCheckInCheckOut
                         do
                         {
                             OpcionTripulante= Integer.parseInt(JOptionPane.showInputDialog(null,"____________________"+"Menu Tripulante"+"____________________"
-                            +"\n[1] Registrar Tripulante"+"\n[2] Buscar Tripulante"+"\n[3] Ver todos los Tripulante"+"\n[4] Salir Menu Tripulante"));
+                            +"\n[1] Registrar Tripulante"+"\n[2] Busqueda de Tripulante"+"\n[3] Ver todos los Tripulante"+"\n[4] Salir Menu Tripulante"));
                             switch(OpcionTripulante)
                             {
                                 case 1:
@@ -151,17 +151,20 @@ public class ProyectoCheckInCheckOut
                                     break;
                                     
                                 case 2:
+                                    tripulacion.BusquedaTripulante();
+
+                                    break;
+                                case 3:
                                     tripulacion.VerTripulante();
                                     break;
-                                    
-                                case 3:
+                                case 4:
                                     JOptionPane.showMessageDialog(null,"Saliendo del Menu de Tripulante");
                                     break;  
                                 default:
                                     JOptionPane.showMessageDialog(null,"Opcion Invalida, Intentelo nuevamente"); 
                             }      
                         } while(OpcionTripulante==3);
-                    break;  
+                         break;  
                  case 4:
                         JOptionPane.showMessageDialog(null,"Opcion 4");
                         
@@ -176,6 +179,7 @@ public class ProyectoCheckInCheckOut
                         salir=true;
                         JOptionPane.showMessageDialog(null,"Cerrando Programa...\n"+
                         "El programa fue cerrado con exito\n\n"+
+                        
                         "___________________________Fin del programa___________________________");
                         break;
                     default:

@@ -16,6 +16,7 @@ public class Tripulacion
     public String Puesto;
     public String NVuelo;
     public String Estado;
+    String mensaje;
     
 
     //Metodos
@@ -59,11 +60,11 @@ public class Tripulacion
     //Metodo Mensajes
     public void RegistrarTripulante()
     {
-        String FilaATripulacion =JOptionPane.showInputDialog("Escriba la Fila de la Bodega[A-B-C-D]: ");
+            String FilaATripulacion =JOptionPane.showInputDialog("Escriba la Fila del Asiento[A-B-C-D]: ");
             String word= "ABCD";
             String temp=FilaATripulacion;
             int Fila=word.indexOf(temp);
-            String ColumnaATripulacion =JOptionPane.showInputDialog("Escriba la Columna de la Bodega [1-20]: ");
+            String ColumnaATripulacion =JOptionPane.showInputDialog("Escriba la Columna del Asiento [1-2]: ");
             int Colu=Integer.parseInt(ColumnaATripulacion)-1;
             if ( AsientoTripulante[Fila][Colu].Estado=="0" )
             {
@@ -73,6 +74,7 @@ public class Tripulacion
                 String Puesto= JOptionPane.showInputDialog("Escriba el puesto del tripulante: ");
                 String Estado ="1";
                 AsientoTripulante[Fila][Colu]= new Tripulacion(FilaATripulacion,ColumnaATripulacion,Nombre,Apellidos,NVuelo,Puesto,Estado);
+                JOptionPane.showMessageDialog(null," Puesto: "+Puesto+Nombre+" "+Apellidos+" Numero de Vuelo : "+NVuelo+" y Numero de Asiento:  "+FilaATripulacion+ColumnaATripulacion+"\n Ha sido registrado con exito :)");
             }
             else
             {
@@ -81,9 +83,53 @@ public class Tripulacion
             
     }
     
+    public void BusquedaTripulante()
+    {
+            String FilaATripulacion =JOptionPane.showInputDialog("Escriba la Fila del Asiento[A-B-C-D]: ");
+            String word= "ABCD";
+            String temp=FilaATripulacion;
+            int Fila=word.indexOf(temp);
+            String ColumnaATripulacion =JOptionPane.showInputDialog("Escriba la Columna del Asiento [1-2]: ");
+            int Colu=Integer.parseInt(ColumnaATripulacion)-1;
+            if( AsientoTripulante[Fila][Colu].Estado=="0" )
+                {
+                    JOptionPane.showMessageDialog(null,"El espacio seleccionado  de la bodega se encuentra vacio");
+                }
+                else
+                {
+                    JOptionPane.showMessageDialog(null,"El Asiento de tripulacion: "+FilaATripulacion+ColumnaATripulacion+" se encuentra ocupado por:\n"+
+                    Puesto+" Nombre: "+AsientoTripulante[Fila][Colu].Nombre+" Apellidos: "+AsientoTripulante[Fila][Colu].Apellidos+" Numero de Vuelo: "+
+                    AsientoTripulante[Fila][Colu].NVuelo);
+                    
+                    
+                }
+                
+    }
+
+
+
     public void VerTripulante()
     {
-        JOptionPane.showMessageDialog(null,"Ver Tripulantes");
+        mensaje="Filas:[ A B C D ]\nColumnas:[ 1-2 ]\n";
+            for (int i=0;i<4;i++)
+            {
+                for (int j=0;j<2;j++)
+                {
+                    if(AsientoTripulante[i][j].Estado=="0")
+                    {
+                         mensaje= mensaje + " _ ";
+                    }
+                    else
+                    {
+                         mensaje= mensaje + " X ";
+                    }
+                }
+                mensaje = mensaje +"\n";
+            }
+            
+            JOptionPane.showMessageDialog(null,"╔═.✰.═════════════════════════════════════.✰.═╗\n"+
+                                                "                           Asientos para Tripulación \n\n"+mensaje+
+                                                "╚═.✰.════════════════════════════════════.✰.═╝");
     }
 
 

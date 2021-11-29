@@ -6,6 +6,7 @@ public class Pasajeros
 {
     //Inicializa el Array
     private Pasajeros[][] Asientos = new Pasajeros[4][20];
+    String mensaje;
 
     //Atributos
     public String FiladeAsiento;
@@ -14,9 +15,7 @@ public class Pasajeros
     public String Apellidos;
     public String Ciudadania;
     public String Estado;
-
     
-
     //Constructor
     public Pasajeros()
     {
@@ -65,36 +64,71 @@ public class Pasajeros
                 
                 if( Asientos[Fila][Colu].Estado=="0" )
                 {
-
                 String Nombre = JOptionPane.showInputDialog("Escriba su nombre: ");
                 String Apellidos = JOptionPane.showInputDialog("Escriba su Apellido: ");
                 String Ciudadania= JOptionPane.showInputDialog("Escriba su Ciudadania: ");
                 String Estado ="1";
                 Asientos[Fila][Colu]= new Pasajeros(FiladeAsiento,ColumnadeAsiento,Nombre,Apellidos,Ciudadania,Estado);
                 JOptionPane.showMessageDialog(null,"El pasajero: "+Nombre+" "+Apellidos+" con Ciudadania: "+Ciudadania+" y Numero de Asiento:  "+FiladeAsiento+ColumnadeAsiento+"\n Ha sido registrado con exito :)");
-               
                 }
                 else
                 {
                     JOptionPane.showMessageDialog(null,"Lo lamentamos, el campo elegido ya ha sido ocupado por otro Pasajero\nIntentelo nuevamente :( ");
                 }
-                
-    
     }
     
     //Metodo de Busqueda de Pasajeros por Numero de asiento
     public void BuscarPasajero()
     {
-        JOptionPane.showMessageDialog(null,"Buscar Pasajero");
-    }
+                String FiladeAsiento =JOptionPane.showInputDialog("Busqueda de pasajero"+"Escriba la Fila de Asiento[ A-B-C-D ]");
+                String word= "ABCD";
+                String temp=FiladeAsiento;
+                int Fila=word.indexOf(temp);
+                String ColumnadeAsiento =JOptionPane.showInputDialog("Escriba la Columna del asiento [ 1-20 ]");
+                int Colu=Integer.parseInt(ColumnadeAsiento)-1;
+                if( Asientos[Fila][Colu].Estado=="0" )
+                {
+                    JOptionPane.showMessageDialog(null,"El espacio seleccionado se encuentra vacio");
+                }
+                else
+                {
 
+                }
+                JOptionPane.showMessageDialog(null,"El espacio: "+FiladeAsiento+ColumnadeAsiento+" se encuentra ocupado por:\n"+
+                "Nombre: "+Asientos[Fila][Colu].Nombre+" Apellidos: "+Asientos[Fila][Colu].Apellidos+" Ciudadania: "+
+                Asientos[Fila][Colu].Ciudadania);
+                
+    }
 
     //Metodo de vista de Pasajeros en el vuelo
     public void VerPasajeros()
     {
         
-        JOptionPane.showMessageDialog(null,"Buscar Pasajero");
+            mensaje="Filas:[ A B C D ]\nColumnas:[ 1-20 ]\n";
+            for (int i=0;i<4;i++)
+            {
+                for (int j=0;j<20;j++)
+                {
+                    if(Asientos[i][j].Estado=="0")
+                    {
+                         mensaje= mensaje + " _ ";
+                    }
+                    else
+                    {
+                         mensaje= mensaje + " X ";
+                    }
+                }
+                mensaje = mensaje +"\n";
+            }
+            
+            
+            JOptionPane.showMessageDialog(null,"╔═.✰.═════════════════════════════════════.✰.═╗\n"+
+                                                "                           Asientos de los Pasajeros\n\n"+mensaje+
+                                                "╚═.✰.════════════════════════════════════.✰.═╝");
+            
     }
+    
+        
     
     
 
