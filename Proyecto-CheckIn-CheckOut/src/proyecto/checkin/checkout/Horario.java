@@ -1,7 +1,7 @@
 
 package proyecto.checkin.checkout;
 
-import javax.swing.JOptionPane;
+//import javax.swing.JOptionPane;
 public class Horario 
 {
     /*

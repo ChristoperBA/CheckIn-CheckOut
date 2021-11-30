@@ -78,6 +78,11 @@ public class Equipaje
                 }
             
     }
+
+    public void EliminarEquipaje()
+    {
+
+    }
     //Busqueda de equipajes
     public void BuscarEquipaje()
     {
@@ -100,6 +105,10 @@ public class Equipaje
                 +Espacio[Fila][Colu].Peso);
                 
                 
+    }
+    public void VerListaEquipajes()
+    {
+        
     }
 
     //Vista de equipajes Graficamente

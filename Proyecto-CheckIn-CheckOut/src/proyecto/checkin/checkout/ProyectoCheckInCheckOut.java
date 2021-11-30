@@ -75,36 +75,43 @@ public class ProyectoCheckInCheckOut
                         do
                         {  
                             OpcionPasajeros= Integer.parseInt(JOptionPane.showInputDialog(null,"____________________"+"Menu Pasajeros"+"____________________"+
-                            "\n[1] Registrar Pasajero"+"\n[2] Buscar Pasajero"+"\n[3] Ver todos Pasajeros"+"\n[4] Salir Menu Pasajeros"));
+                            "\n[1] Registrar Pasajero"+"\n[2] Eliminar Pasajero "+"\n[3] Busqueda Pasajeros\n[4] Ver todos Pasajeros"+"\n[5] Ver lista Pasajeros\n[6] Salir Menu Pasajeros"));
                             switch(OpcionPasajeros)
                             {
                                 case 1:
-                                {
+                                
                                     pasajeros.RegistrarPasajero();
                                     break;
-                                }
+                                
                                 case 2:
-                                {   
+                                    pasajeros.EliminarPasajero();
+                                    break;
+                                case 3:
+                                  
                                     pasajeros.BuscarPasajero();
                                     break;
-                                }
-                                case 3:
-                                {
+                                
+                                case 4:
+                                
                                     pasajeros.VerPasajeros();
                                     break;
-
-                                }
-                                case 4:
-                                {
+                                    
+                                
+                                case 5:
+                                    pasajeros.VerListaPasajeros();
+                                    break;
+                                
+                                case 6:
+                                
                                     JOptionPane.showMessageDialog(null,"Saliendo del Menu de Pasajeros");
                                     break;
                                     
-                                }
+                                
                                 default:
-                                {
+                                
                                     JOptionPane.showMessageDialog(null,"Opcion invalida");
                                     
-                                }   
+                                 
                             }
                         }while(OpcionPasajeros!=4);
                         break;    
@@ -113,21 +120,23 @@ public class ProyectoCheckInCheckOut
                         do
                         {
                             OpcionEquipaje= Integer.parseInt(JOptionPane.showInputDialog(null,"____________________"+"Menu Equipaje"+"____________________"
-                            +"\n[1] Registrar Equipaje"+"\n[2] Buscar Equipaje"+"\n[3] Ver todos Equipaje"+"\n[4] Salir Menu Equipaje"));
+                            +"\n[1] Registrar Equipaje"+"\n[2] Eliminar Equipaje"+"\n[3] Buscar Equipaje"+"\n[4] Ver todos Equipaje"+"\n[4] Ver Lista Equipaje"+"\n[6] Salir Menu Equipaje"));
                             switch(OpcionEquipaje)
                             {
                                 case 1:
                                     equipaje.RegistrarEquipaje();
                                     break; 
                                 case 2:
+                                     equipaje.EliminarEquipaje(); 
+                                case 3:
                                     equipaje.BuscarEquipaje();
                                     break;
-                                    
-                                case 3:
+                                case 4:
                                     equipaje.VerEquipaje();
                                     break;
-                                    
-                                case 4:
+                                case 5:
+                                    equipaje.VerListaEquipajes();
+                                case 6:
                                     JOptionPane.showMessageDialog(null,"Saliendo del Menu de Equipaje...");
                                     break;
                                 default:
@@ -152,7 +161,6 @@ public class ProyectoCheckInCheckOut
                                     
                                 case 2:
                                     tripulacion.BusquedaTripulante();
-
                                     break;
                                 case 3:
                                     tripulacion.VerTripulante();
@@ -167,13 +175,16 @@ public class ProyectoCheckInCheckOut
                          break;  
                  case 4:
                         JOptionPane.showMessageDialog(null,"Opcion 4");
+                        break;
                         
                  case 5:
                     
                         JOptionPane.showMessageDialog(null,"Opcion 5");
+                        break;
                         
                  case 6:
                         JOptionPane.showMessageDialog(null,"Opcion 6");
+                        break;
                         
                  case 7:
                         salir=true;
