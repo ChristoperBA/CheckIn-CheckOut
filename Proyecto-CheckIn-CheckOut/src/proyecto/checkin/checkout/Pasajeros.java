@@ -1,11 +1,19 @@
-
+/*
+Clase Pasajeros:
+Aqui se hacen todas las funciones con respecto al Pasajeros
+Contiene Métodos de Agregación,Eliminación,Busqueda,Vista Gráfica,Lista Textual de Pasajeros
+*/ 
 package proyecto.checkin.checkout;
-
+//Importación de la libreria de 
 import javax.swing.JOptionPane;
+
+//Inicio Clase Pasajeros 
 public class Pasajeros 
 {
     //Inicializa el Array
     private Pasajeros[][][] Asientos = new Pasajeros[4][4][20];
+
+    //Declaracíon de variables
     String mensaje;
     String Lista;
 
@@ -43,8 +51,7 @@ public class Pasajeros
             }
         }
     }
-    //Metodos
-    
+    //Métodos
     public Pasajeros(String Vuelo,String FiladeAsiento,String ColumnadeAsiento, String Nombre, String Apellidos,String Ciudadania,String Estado) 
     {
         this.Vuelo=Vuelo;
@@ -56,11 +63,12 @@ public class Pasajeros
         this.Estado =Estado;
     }  
     
-    //Metodo de registro de Pasajeros
+    //Métodos funcionales
+    //Método de registro de Pasajeros
     public void RegistrarPasajero() 
     {       
-                //Le pedimos al usuario que Ingrese el numero de fila y columna
-                String Vuelo=JOptionPane.showInputDialog("Registrar Pasajero"+"Eliga su Vuelo\n1-Costa Rica-Miami\n2-Costa Rica-Paris\n3-Costa Rica-Panamá\n4-Costa Rica-Japón");
+                //Pedido de datos para el cliente
+                String Vuelo=JOptionPane.showInputDialog("Registrar Pasajero\n"+"Eliga su Vuelo\n1-Costa Rica-Miami\n2-Costa Rica-Paris\n3-Costa Rica-Panamá\n4-Costa Rica-Japón");
                 int OpcionVuelo=Integer.parseInt(Vuelo)-1;
                 String[] Destinos = {"Costa Rica-Miami", "Costa Rica-Paris", "Costa Rica-Panamá", "Costa Rica-Japón"};
                 String FiladeAsiento =JOptionPane.showInputDialog("Escriba su Fila de Asiento[ A-B-C-D ]");
@@ -70,8 +78,7 @@ public class Pasajeros
                 String ColumnadeAsiento =JOptionPane.showInputDialog("Escriba su Columna del asiento [ 1-20 ]");
                 int Colu=Integer.parseInt(ColumnadeAsiento)-1;
 
-                //Hacemos una comprobacion por si el campo ya fue elegido
-                
+                //Comprobación de la disponibilidad del asiento
                 if( Asientos[OpcionVuelo][Fila][Colu].Estado=="0" )
                 {
                     Vuelo=Destinos[OpcionVuelo];
@@ -87,9 +94,10 @@ public class Pasajeros
                     JOptionPane.showMessageDialog(null,"Lo lamentamos, el campo elegido ya ha sido ocupado por otro Pasajero\nIntentelo nuevamente :( ");
                 }
     }
-    //Metodo de eliminacion de un pasajero
+    //Método de eliminación de un pasajero
     public void EliminarPasajero() 
     {
+            //Pedido de datos para el cliente
             String Vuelo=JOptionPane.showInputDialog("Eliminar Pasajero\n "+"Eliga el Vuelo\n 1-Costa Rica-Miami\n2-Costa Rica-Paris\n3-Costa Rica-Panamá\n4-Costa Rica-Japón");
             int OpcionVuelo=Integer.parseInt(Vuelo)-1;
             String FiladeAsiento =JOptionPane.showInputDialog("Escriba la Fila de Asiento[ A-B-C-D ]");
@@ -98,6 +106,8 @@ public class Pasajeros
             int Fila=word.indexOf(temp);
             String ColumnadeAsiento =JOptionPane.showInputDialog("Escriba la Columna del asiento [ 1-20 ]");
             int Colu=Integer.parseInt(ColumnadeAsiento)-1;
+
+            //Comprobación de la disponibilidad del asiento
             if( Asientos[OpcionVuelo][Fila][Colu].Estado=="1" )
             {
                 Vuelo="";
@@ -116,39 +126,41 @@ public class Pasajeros
             }
     }
     
-    //Metodo de Busqueda de Pasajeros por Numero de asiento
+    //Método de Búsqueda de Pasajeros por Número de asiento
     public void BuscarPasajero()
     {
-                String Vuelo=JOptionPane.showInputDialog("Buscar Pasajero\n "+"Eliga el Vuelo\n 1-Costa Rica-Miami\n2-Costa Rica-Paris\n3-Costa Rica-Panamá\n4-Costa Rica-Japón");
-                int OpcionVuelo=Integer.parseInt(Vuelo)-1;
-                String FiladeAsiento =JOptionPane.showInputDialog("Escriba la Fila de Asiento[ A-B-C-D ]");
-                String word= "ABCD";
-                String temp=FiladeAsiento;
-                int Fila=word.indexOf(temp);
-                String ColumnadeAsiento =JOptionPane.showInputDialog("Escriba la Columna del asiento [ 1-20 ]");
-                int Colu=Integer.parseInt(ColumnadeAsiento)-1;
-                if( Asientos[OpcionVuelo][Fila][Colu].Estado=="0" )
+            //Pedido de datos para el cliente
+            String Vuelo=JOptionPane.showInputDialog("Buscar Pasajero\n "+"Eliga el Vuelo\n 1-Costa Rica-Miami\n2-Costa Rica-Paris\n3-Costa Rica-Panamá\n4-Costa Rica-Japón");
+            int OpcionVuelo=Integer.parseInt(Vuelo)-1;
+            String[] Destinos = {"Costa Rica-Miami", "Costa Rica-Paris", "Costa Rica-Panamá", "Costa Rica-Japón"};
+            String FiladeAsiento =JOptionPane.showInputDialog("Escriba la Fila de Asiento[ A-B-C-D ]");
+            String word= "ABCD";
+            String temp=FiladeAsiento;
+            int Fila=word.indexOf(temp);
+            String ColumnadeAsiento =JOptionPane.showInputDialog("Escriba la Columna del asiento [ 1-20 ]");
+            int Colu=Integer.parseInt(ColumnadeAsiento)-1;
+            //Comprobación de la disponibilidad del asiento
+            if( Asientos[OpcionVuelo][Fila][Colu].Estado=="0" )
                 {
                     JOptionPane.showMessageDialog(null,"El espacio seleccionado se encuentra vacio");
                 }
-                else
+            else
                 {
-
-                }
-                JOptionPane.showMessageDialog(null,Vuelo+"\nEl espacio: "+FiladeAsiento+ColumnadeAsiento+" se encuentra ocupado por:\n"+
-                "Nombre: "+Asientos[OpcionVuelo][Fila][Colu].Nombre+" Apellidos: "+Asientos[OpcionVuelo][Fila][Colu].Apellidos+" Ciudadania: "+
-                Asientos[OpcionVuelo][Fila][Colu].Ciudadania);
-                
+                    Vuelo=Destinos[OpcionVuelo];
+                    JOptionPane.showMessageDialog(null,Vuelo+"\nEl espacio: "+FiladeAsiento+ColumnadeAsiento+" se encuentra ocupado por:\n"+
+                    "Nombre: "+Asientos[OpcionVuelo][Fila][Colu].Nombre+" Apellidos: "+Asientos[OpcionVuelo][Fila][Colu].Apellidos+" Ciudadania: "+
+                    Asientos[OpcionVuelo][Fila][Colu].Ciudadania);
+                }   
     }
 
-    //Metodo de visualizacion del Pasajeros por medio de una lista
+    //Método de visualización del Pasajeros por medio de una lista
     public void VerListaPasajeros()
     {
         Lista="";
         for (int i=0;i<4;i++)
             {
                 String[] Destinos = {"Costa Rica-Miami", "Costa Rica-Paris", "Costa Rica-Panamá", "Costa Rica-Japón"};
-                Lista=Lista+Destinos[i]+"\n";
+                Lista=Lista+"\n"+Destinos[i];
                 for (int j=0;j<4;j++)
                     {
                         for (int k=0;k<20;k++)
@@ -164,20 +176,16 @@ public class Pasajeros
                                 Asientos[i][j][k].Ciudadania;
                             }
                         }
-                        
                     }
-                    
-            
             }
             JOptionPane.showMessageDialog(null,"╔═.✰.═════════════════════════════════════.✰.═╗\n"+
                                                 "                           Lista de Pasajeros\n\n"+Lista+
                                                 "\n╚═.✰.════════════════════════════════════.✰.═╝\n");
     }
 
-    //Metodo de vista de Pasajeros en el vuelo
+    //Metodo de Vista Grafica de  los Pasajeros en el vuelo
     public void VerPasajeros()
     {
-        
             mensaje="Filas( - ):[ A B C D ]\nColumnas( | ):[ 1-20 ]\n\n";
             String[] Destinos = {"Costa Rica-Miami", "Costa Rica-Paris", "Costa Rica-Panamá", "Costa Rica-Japón"};
             for (int i=0;i<4;i++)
@@ -199,23 +207,10 @@ public class Pasajeros
                         mensaje = mensaje +"\n";
                     }
                     mensaje = mensaje +"\n";
-            
             }
             JOptionPane.showMessageDialog(null,"╔═.✰.═════════════════════════════════════.✰.═╗\n"+
                                                 "                           Asientos de los Pasajeros\n\n"+mensaje+
                                                 "╚═.✰.════════════════════════════════════.✰.═╝");
-            
     }
-    
-        
-    
-    
-
-
-
-
-
 
 }//Fin  Clase Pasajeros
-
-
