@@ -5,7 +5,7 @@ package proyecto.checkin.checkout;
 public class Costos 
 {
     /*
-//Atributos
+    //Atributos
     private int valor;
     private String ID;
     private String NAsientos;

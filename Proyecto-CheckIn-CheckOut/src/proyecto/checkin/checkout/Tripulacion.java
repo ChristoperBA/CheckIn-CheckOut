@@ -73,7 +73,7 @@ public class Tripulacion
     public void RegistrarTripulante()
     {
             //Pedido de datos para el cliente
-            String Vuelo=JOptionPane.showInputDialog("Registrar Tripulante\n"+"Eliga su Vuelo\n1-Costa Rica-Miami\n2-Costa Rica-Paris\n3-Costa Rica-Panamá\n4-Costa Rica-Japón");
+            String Vuelo=JOptionPane.showInputDialog("Registrar Tripulante\n"+"Elija su Vuelo\n1-Costa Rica-Miami\n2-Costa Rica-Paris\n3-Costa Rica-Panamá\n4-Costa Rica-Japón");
             int OpcionVuelo=Integer.parseInt(Vuelo)-1;
             String[] Destinos = {"Costa Rica-Miami", "Costa Rica-Paris", "Costa Rica-Panamá", "Costa Rica-Japón"};
             String FilaATripulacion =JOptionPane.showInputDialog("Escriba la Fila del Asiento[A-B-C-D]: ");
@@ -106,7 +106,7 @@ public class Tripulacion
     public void BusquedaTripulante()
     {
             //Pedido de datos para el cliente
-            String Vuelo=JOptionPane.showInputDialog("Buscar Pasajero\n "+"Eliga el Vuelo\n 1-Costa Rica-Miami\n2-Costa Rica-Paris\n3-Costa Rica-Panamá\n4-Costa Rica-Japón");
+            String Vuelo=JOptionPane.showInputDialog("Buscar Pasajero\n "+"Elija el Vuelo\n 1-Costa Rica-Miami\n2-Costa Rica-Paris\n3-Costa Rica-Panamá\n4-Costa Rica-Japón");
             int OpcionVuelo=Integer.parseInt(Vuelo)-1;
             String[] Destinos = {"Costa Rica-Miami", "Costa Rica-Paris", "Costa Rica-Panamá", "Costa Rica-Japón"};
             String FilaATripulacion =JOptionPane.showInputDialog("Escriba la Fila del Asiento[A-B-C-D]: ");
@@ -192,5 +192,48 @@ public class Tripulacion
                                                 "                        Asientos para Tripulación \n\n"+mensaje+
                                             "╚═.✰.════════════════════════════════════.✰.═╝");
     }
+    public void CheckoutTripulantes()
+    {
     
+            int opcionfinalizar=Integer.parseInt(JOptionPane.showInputDialog(null,"____________________"+"Menu Finalizar Viaje"+
+                        "____________________\nQue Vuelo deseas Finalizar: \n1-Costa Rica-Miami\n2-Costa Rica-Paris\n3-Costa Rica-Panamá\n4-Costa Rica-Japón\n5-Salir de finalizar Vuelos"));
+      
+            opcionfinalizar-=1;    
+            if (opcionfinalizar>=0 && opcionfinalizar<=3) 
+            {        
+                for (int i=0;i<1;i++)
+                {
+                    for (int j=0;j<4;j++)
+                        {
+                        for (int k=0;k<20;k++)
+                            {
+                                Vuelo="";
+                                FilaATripulacion="";
+                                ColumnaATripulacion="";
+                                Nombre = "";
+                                Apellidos="";
+                                Puesto = "";
+                                NVuelo = "";
+                                Estado="0";
+                                AsientoTripulante[opcionfinalizar][j][k]= new Tripulacion(Vuelo,FilaATripulacion,ColumnaATripulacion,Nombre,Apellidos,NVuelo,Puesto,Estado);
+
+                                
+                                            
+                            }
+                        }
+                }
+             }
+             else
+             {
+                JOptionPane.showMessageDialog(null,"Opcion invalida, intentalo nuevamente");
+             }           
+}
+
+
+
+
+
+
+
+
 }//Fin clase Tripulación

@@ -28,6 +28,7 @@ public class ProyectoCheckInCheckOut
         {
             //Inicio de Acceso
             //Inicio del ciclo para Inicio de sesión
+            /*
             boolean Acceso = false;
             while (!Acceso)
                 {
@@ -51,6 +52,7 @@ public class ProyectoCheckInCheckOut
                         JOptionPane.showMessageDialog(null,"Usuario Incorrecto :(");
                     }
                 }
+                */
 
             //Se instancias las Clases
             Pasajeros pasajeros=new Pasajeros();
@@ -164,10 +166,38 @@ public class ProyectoCheckInCheckOut
                                 default:
                                     JOptionPane.showMessageDialog(null,"Opcion Invalida, Intentelo nuevamente"); 
                             }      
-                        } while(OpcionTripulante==5);
+                        } while(OpcionTripulante!=5);
                          break;  
                  case 4:
-                        JOptionPane.showMessageDialog(null,"Opcion 4*********FALTA************");
+                    boolean Finalizar = false;
+                    while (!Finalizar)
+                        {
+                            String Usuario=JOptionPane.showInputDialog("Para finalizar vuelos requiere ser modo administrador\nUsuario ");
+                            if (Usuario.equals("admin"))
+                            {
+                                    String password=JOptionPane.showInputDialog("Digite su contraseña");
+                                    if (password.equals("123"))
+                                    {
+                                        JOptionPane.showMessageDialog(null,"Bienvenido Admin :) \nAhora puede Finalizar Viajes");
+                                        Finalizar = true;
+                                        break;
+                                    }
+                                    else
+                                    {
+                                            JOptionPane.showMessageDialog(null,"La contraseña es incorrecta, Intentalo nuevamente :(\nSolo administradores pueden finalizar Vuelos");
+                                    }
+                            }
+                            else 
+                            {
+                            }
+                            JOptionPane.showMessageDialog(null,"Usuario Incorrecto :(\nSolo administradores pueden finalizar Vuelos");
+                        }
+                        pasajeros.CheckoutPasajeros();
+                        
+                        //tripulacion.CheckoutTripulantes();
+                       // equipaje.CheckoutEquipaje();
+                        
+    
                         break;
                  case 5:
                         JOptionPane.showMessageDialog(null,"Opcion 5*********FALTA************");
@@ -178,7 +208,7 @@ public class ProyectoCheckInCheckOut
                         "El programa fue cerrado con exito\n\n"+
                         "___________________________Fin del programa___________________________");
                         break;
-                    default:
+                default:
                         JOptionPane.showMessageDialog(null,"Opcion Invalida, Intentelo nuevamente");
                         
                 }//Fin Switch Principal

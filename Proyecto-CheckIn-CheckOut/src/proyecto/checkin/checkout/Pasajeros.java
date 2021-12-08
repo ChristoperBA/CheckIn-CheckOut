@@ -68,7 +68,7 @@ public class Pasajeros
     public void RegistrarPasajero() 
     {       
                 //Pedido de datos para el cliente
-                String Vuelo=JOptionPane.showInputDialog("Registrar Pasajero\n"+"Eliga su Vuelo\n1-Costa Rica-Miami\n2-Costa Rica-Paris\n3-Costa Rica-Panamá\n4-Costa Rica-Japón");
+                String Vuelo=JOptionPane.showInputDialog("Registrar Pasajero\n"+"Elija su Vuelo\n1-Costa Rica-Miami\n2-Costa Rica-Paris\n3-Costa Rica-Panamá\n4-Costa Rica-Japón");
                 int OpcionVuelo=Integer.parseInt(Vuelo)-1;
                 String[] Destinos = {"Costa Rica-Miami", "Costa Rica-Paris", "Costa Rica-Panamá", "Costa Rica-Japón"};
                 String FiladeAsiento =JOptionPane.showInputDialog("Escriba su Fila de Asiento[ A-B-C-D ]");
@@ -98,7 +98,7 @@ public class Pasajeros
     public void EliminarPasajero() 
     {
             //Pedido de datos para el cliente
-            String Vuelo=JOptionPane.showInputDialog("Eliminar Pasajero\n "+"Eliga el Vuelo\n 1-Costa Rica-Miami\n2-Costa Rica-Paris\n3-Costa Rica-Panamá\n4-Costa Rica-Japón");
+            String Vuelo=JOptionPane.showInputDialog("Eliminar Pasajero\n "+"Elija el Vuelo\n 1-Costa Rica-Miami\n2-Costa Rica-Paris\n3-Costa Rica-Panamá\n4-Costa Rica-Japón");
             int OpcionVuelo=Integer.parseInt(Vuelo)-1;
             String FiladeAsiento =JOptionPane.showInputDialog("Escriba la Fila de Asiento[ A-B-C-D ]");
             String word= "ABCD";
@@ -130,7 +130,7 @@ public class Pasajeros
     public void BuscarPasajero()
     {
             //Pedido de datos para el cliente
-            String Vuelo=JOptionPane.showInputDialog("Buscar Pasajero\n "+"Eliga el Vuelo\n 1-Costa Rica-Miami\n2-Costa Rica-Paris\n3-Costa Rica-Panamá\n4-Costa Rica-Japón");
+            String Vuelo=JOptionPane.showInputDialog("Buscar Pasajero\n "+"Elija el Vuelo\n1-Costa Rica-Miami\n2-Costa Rica-Paris\n3-Costa Rica-Panamá\n4-Costa Rica-Japón");
             int OpcionVuelo=Integer.parseInt(Vuelo)-1;
             String[] Destinos = {"Costa Rica-Miami", "Costa Rica-Paris", "Costa Rica-Panamá", "Costa Rica-Japón"};
             String FiladeAsiento =JOptionPane.showInputDialog("Escriba la Fila de Asiento[ A-B-C-D ]");
@@ -213,4 +213,47 @@ public class Pasajeros
                                                 "╚═.✰.════════════════════════════════════.✰.═╝");
     }
 
+    public void CheckoutPasajeros()
+    {
+            int opcionfinalizar=Integer.parseInt(JOptionPane.showInputDialog(null,"____________________"+"Menu Finalizar Viaje"+
+                        "____________________\nQue Vuelo deseas Finalizar: \n1-Costa Rica-Miami\n2-Costa Rica-Paris\n3-Costa Rica-Panamá\n4-Costa Rica-Japón"));
+            int temp= opcionfinalizar-1;  
+            
+            do
+            {
+                if (temp>=0 &&temp<4)
+                {
+                    for (int i=0;i<1;i++)
+                    {
+                        for (int j=0;j<4;j++)
+                            {
+                            for (int k=0;k<20;k++)
+                                {
+                                    Vuelo="";
+                                    FiladeAsiento="";
+                                    ColumnadeAsiento="";
+                                    Nombre = "";
+                                    Apellidos = "";
+                                    Ciudadania = "";
+                                    Estado= "0";
+                                    Asientos[temp][j][k]= new Pasajeros(Vuelo,FiladeAsiento,ColumnadeAsiento,Nombre,Apellidos,Ciudadania,Estado);
+                                                
+                                }
+                            }
+                    }
+                    JOptionPane.showMessageDialog(null,"Vuelo Finalizado");
+                }
+                else if (temp==4)
+                    {
+                        JOptionPane.showMessageDialog(null,"Saliendo del menu Finalizar Viajes");
+                    }
+                else
+                {
+                    JOptionPane.showMessageDialog(null,"Opcion Invalida");
+                }
+            
+                
+            
+            }while (temp<0&&temp>4);
+    }
 }//Fin  Clase Pasajeros

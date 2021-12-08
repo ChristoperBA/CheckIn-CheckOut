@@ -71,7 +71,7 @@ public class Equipaje
     public void RegistrarEquipaje()
     {
             //Pedido de datos para el cliente
-            String Vuelo=JOptionPane.showInputDialog("Registrar Equipaje\n"+"Eliga su Vuelo\n1-Costa Rica-Miami\n2-Costa Rica-Paris\n3-Costa Rica-Panamá\n4-Costa Rica-Japón");
+            String Vuelo=JOptionPane.showInputDialog("Registrar Equipaje\n"+"Elija el Vuelo\n1-Costa Rica-Miami\n2-Costa Rica-Paris\n3-Costa Rica-Panamá\n4-Costa Rica-Japón");
             int OpcionVuelo=Integer.parseInt(Vuelo)-1;
             String[] Destinos = {"Costa Rica-Miami", "Costa Rica-Paris", "Costa Rica-Panamá", "Costa Rica-Japón"};
             String FilaBodega =JOptionPane.showInputDialog("Escriba la Fila de la Bodega[ A-B-C-D ]: ");
@@ -102,7 +102,7 @@ public class Equipaje
     public void EliminarEquipaje()
     {
             //Pedido de datos para el cliente
-            String Vuelo=JOptionPane.showInputDialog("Eliminar Equipaje\n "+"Eliga el Vuelo\n 1-Costa Rica-Miami\n2-Costa Rica-Paris\n3-Costa Rica-Panamá\n4-Costa Rica-Japón");
+            String Vuelo=JOptionPane.showInputDialog("Eliminar Equipaje\n "+"Elija el Vuelo\n 1-Costa Rica-Miami\n2-Costa Rica-Paris\n3-Costa Rica-Panamá\n4-Costa Rica-Japón");
             int OpcionVuelo=Integer.parseInt(Vuelo)-1;
             String FiladeAsiento =JOptionPane.showInputDialog("Escriba la Fila de Asiento[ A-B-C-D ]");
             String word= "ABCD";
@@ -133,7 +133,7 @@ public class Equipaje
     public void BuscarEquipaje()
     {
                 //Pedido de datos para el cliente
-                String Vuelo=JOptionPane.showInputDialog("Buscar Equipaje"+"Eliga su Vuelo\n1-Costa Rica-Miami\n2-Costa Rica-Paris\n3-Costa Rica-Panamá\n4-Costa Rica-Japón");
+                String Vuelo=JOptionPane.showInputDialog("Buscar Equipaje"+"Elija el Vuelo\n1-Costa Rica-Miami\n2-Costa Rica-Paris\n3-Costa Rica-Panamá\n4-Costa Rica-Japón");
                 int OpcionVuelo=Integer.parseInt(Vuelo)-1;
                 String[] Destinos = {"Costa Rica-Miami", "Costa Rica-Paris", "Costa Rica-Panamá", "Costa Rica-Japón"};
                 String FiladeAsiento =JOptionPane.showInputDialog("Busqueda de Equipaje"+"Escriba la Fila de Bodega[ A-B-C-D ]");
@@ -216,4 +216,40 @@ public class Equipaje
         "╚═.✰.═════════════════════════════════════════════════════════════════════════.✰.═╝");
     }
 
+    public void CheckoutEquipaje()
+{
+    
+    int opcionfinalizar=Integer.parseInt(JOptionPane.showInputDialog(null,"____________________"+"Menu Finalizar Viaje"+
+                        "____________________\nQue Vuelo deseas Finalizar: \n1-Costa Rica-Miami\n2-Costa Rica-Paris\n3-Costa Rica-Panamá\n4-Costa Rica-Japón\n5-Salir de finalizar Vuelos"));
+                       
+            opcionfinalizar-=1;    
+            if (opcionfinalizar>=0 && opcionfinalizar<=3) 
+            {        
+                for (int i=0;i<1;i++)
+                {
+                    for (int j=0;j<4;j++)
+                        {
+                         for (int k=0;k<20;k++)
+                            {
+                                Vuelo="";
+                                FilaBodega="";
+                                ColumnaBodega="";
+                                Color = "";
+                                NAsiento = "";
+                                Peso = "";
+                                Estado="0";
+                                Espacio[opcionfinalizar][j][k]= new Equipaje(Vuelo,FilaBodega,ColumnaBodega,Color,NAsiento,Peso,Estado);
+
+                            
+               
+                            }
+                        }
+                }
+             }
+             else
+             {
+                JOptionPane.showMessageDialog(null,"Opcion invalida, intentalo nuevamente");
+             }           
+}
+    
 }//Fin clase Equipaje
