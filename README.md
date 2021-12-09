@@ -7,7 +7,7 @@ empresa de aviación comercial
 Integrantes:
 Christopher Briceño Arias 
 Valeria Chacón Quintero 
-Josué Palavicini Godinez 
+
 
 Profesora:
 Christy Aguerro Valverde
