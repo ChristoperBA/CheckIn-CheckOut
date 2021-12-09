@@ -42,9 +42,9 @@ public class Vuelos
                         String word= "ABCD";
                         String temp=Fila;
                         int fila=word.indexOf(temp);
-                        columna=Integer.parseInt(JOptionPane.showInputDialog( "Favor ingresar el numero de asiento (1-20) "));
+                        columna=Integer.parseInt(JOptionPane.showInputDialog( "Favor ingresar el numero de asiento (1-20) "))- 1;
                             
-                        if (asiento[fila - 1] [columna - 1] == 0) 
+                        if (asiento[fila ] [columna ] == 0) 
                         {
                         
                                     

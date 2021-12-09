@@ -235,7 +235,6 @@ public class Equipaje
 
     public void CheckoutEquipaje()
 {
-              
             opcionfinalizar-=1;    
             if (opcionfinalizar>=0 && opcionfinalizar<=3) 
             {        
