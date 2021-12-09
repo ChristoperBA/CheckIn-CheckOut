@@ -19,15 +19,6 @@ public class Vuelos
             
     //metodo Mensajes 
   
-    public Vuelos(String Nombre,String ID, String Salida, String Llegada) 
-    {          
-        this.Nombre=Nombre; 
-        this.ID=ID;    
-        this.Llegada=Llegada;       
-        this.Salida=Salida;
-    
-    }
-    
     public Vuelos()
     {
         Nombre="";
