@@ -71,7 +71,7 @@ public class ProyectoCheckInCheckOut
             {
                 //Se pide una opcion al cliente sobre las funciones del menú
                 opcion= Integer.parseInt(JOptionPane.showInputDialog(null,"____________________"+"Menu del Sistema"+"____________________\n"
-                +"\n[1] Control Pasajeros"+"\n[2] Control Equipaje"+"\n[3] Control Tripulantes"+"\n[4] Falta*********"+
+                +"\n[1] Control Pasajeros"+"\n[2] Control Equipaje"+"\n[3] Control Tripulantes"+"\n[4] CheckOut"+
                 "\n[5] Falta**********"+"\n[6] Salir del sistema"));
                 switch(opcion)
                 {
@@ -192,12 +192,12 @@ public class ProyectoCheckInCheckOut
                             }
                             JOptionPane.showMessageDialog(null,"Usuario Incorrecto :(\nSolo administradores pueden finalizar Vuelos");
                         }
+                        
                         pasajeros.CheckoutPasajeros();
                         
                         //tripulacion.CheckoutTripulantes();
                        // equipaje.CheckoutEquipaje();
-                        
-    
+                     
                         break;
                  case 5:
                         JOptionPane.showMessageDialog(null,"Opcion 5*********FALTA************");

@@ -22,6 +22,7 @@ public class Equipaje
     public String NAsiento;
     public String Peso;
     public String Estado;
+    public static int opcionfinalizar;
 
     //Declaración de variables
     String mensaje;
@@ -75,28 +76,34 @@ public class Equipaje
             int OpcionVuelo=Integer.parseInt(Vuelo)-1;
             String[] Destinos = {"Costa Rica-Miami", "Costa Rica-Paris", "Costa Rica-Panamá", "Costa Rica-Japón"};
             String FilaBodega =JOptionPane.showInputDialog("Escriba la Fila de la Bodega[ A-B-C-D ]: ");
-            String word= "ABCD";
-            String temp=FilaBodega;
-            int Fila=word.indexOf(temp);
-            String ColumnaBodega =JOptionPane.showInputDialog("Escriba la Columna de la Bodega [ 1-40 ]: ");
-            int Colu=Integer.parseInt(ColumnaBodega)-1;
+            if (FilaBodega.equals("A") ||FilaBodega.equals("B") ||FilaBodega.equals("C") ||FilaBodega.equals("D") )
+            {
+                String word= "ABCD";
+                String temp=FilaBodega;
+                int Fila=word.indexOf(temp);
+                String ColumnaBodega =JOptionPane.showInputDialog("Escriba la Columna de la Bodega [ 1-40 ]: ");
+                int Colu=Integer.parseInt(ColumnaBodega)-1;
 
-            //Comprobación de la disponibilidad del espacio en la bodega
-            if( Espacio[OpcionVuelo][Fila][Colu].Estado=="0" )
-                {
-                    Vuelo=Destinos[OpcionVuelo];
-                    String Color = JOptionPane.showInputDialog("Escriba el color del Equipaje: ");
-                    String NAsiento = JOptionPane.showInputDialog("Escriba el numero de Asiento: ");
-                    String Peso= JOptionPane.showInputDialog("Escriba el peso del equipaje: ");
-                    String Estado ="1";
-                    Espacio[OpcionVuelo][Fila][Colu]= new Equipaje(Vuelo,FilaBodega,ColumnaBodega,Color,NAsiento,Peso,Estado);
-                    JOptionPane.showMessageDialog(null,"El equipaje de color: "+Color+" con un Peso:"+Peso+" y su dueño porta el numero de Asiento: "+NAsiento+"\n Ha sido registrado con exito :)");
-                }
+                //Comprobación de la disponibilidad del espacio en la bodega
+                if( Espacio[OpcionVuelo][Fila][Colu].Estado=="0" )
+                    {
+                        Vuelo=Destinos[OpcionVuelo];
+                        String Color = JOptionPane.showInputDialog("Escriba el color del Equipaje: ");
+                        String NAsiento = JOptionPane.showInputDialog("Escriba el numero de Asiento: ");
+                        String Peso= JOptionPane.showInputDialog("Escriba el peso del equipaje: ");
+                        String Estado ="1";
+                        Espacio[OpcionVuelo][Fila][Colu]= new Equipaje(Vuelo,FilaBodega,ColumnaBodega,Color,NAsiento,Peso,Estado);
+                        JOptionPane.showMessageDialog(null,"El equipaje de color: "+Color+" con un Peso:"+Peso+" y su dueño porta el numero de Asiento: "+NAsiento+"\n Ha sido registrado con exito :)");
+                    }
+                else
+                    {
+                        JOptionPane.showMessageDialog(null,"Lo lamentamos, el campo elegido esta lleno\nIntentelo nuevamente :(");
+                    }
+            }
             else
-                {
-                    JOptionPane.showMessageDialog(null,"Lo lamentamos, el campo elegido esta lleno\nIntentelo nuevamente :(");
-                }
-            
+            {
+                JOptionPane.showMessageDialog(null,"La Fila Ingresada no es válida, Intentalo Nuevamente");
+            }
     }
     //Método de Eliminacion de Equipaje
     public void EliminarEquipaje()
@@ -105,28 +112,35 @@ public class Equipaje
             String Vuelo=JOptionPane.showInputDialog("Eliminar Equipaje\n "+"Elija el Vuelo\n 1-Costa Rica-Miami\n2-Costa Rica-Paris\n3-Costa Rica-Panamá\n4-Costa Rica-Japón");
             int OpcionVuelo=Integer.parseInt(Vuelo)-1;
             String FiladeAsiento =JOptionPane.showInputDialog("Escriba la Fila de Asiento[ A-B-C-D ]");
-            String word= "ABCD";
-            String temp=FiladeAsiento;
-            int Fila=word.indexOf(temp);
-            String ColumnadeAsiento =JOptionPane.showInputDialog("Escriba la Columna del asiento [ 1-20 ]");
-            int Colu=Integer.parseInt(ColumnadeAsiento)-1;
-
-            //Comprobación de la disponibilidad del asiento
-            if( Espacio[OpcionVuelo][Fila][Colu].Estado=="1" )
+            if (FilaBodega.equals("A") ||FilaBodega.equals("B") ||FilaBodega.equals("C") ||FilaBodega.equals("D") )
             {
-                Vuelo="";
-                FilaBodega="";
-                ColumnaBodega="";
-                Color = "";
-                NAsiento = "";
-                Peso = "";
-                Estado="0";
-                Espacio[OpcionVuelo][Fila][Colu]= new Equipaje(Vuelo,FilaBodega,ColumnaBodega,Color,NAsiento,Peso,Estado);
-                JOptionPane.showMessageDialog(null,"El Equipaje ha sido eliminado con exito ");
+                String word= "ABCD";
+                String temp=FiladeAsiento;
+                int Fila=word.indexOf(temp);
+                String ColumnadeAsiento =JOptionPane.showInputDialog("Escriba la Columna del asiento [ 1-20 ]");
+                int Colu=Integer.parseInt(ColumnadeAsiento)-1;
+
+                //Comprobación de la disponibilidad del asiento
+                if( Espacio[OpcionVuelo][Fila][Colu].Estado=="1" )
+                {
+                    Vuelo="";
+                    FilaBodega="";
+                    ColumnaBodega="";
+                    Color = "";
+                    NAsiento = "";
+                    Peso = "";
+                    Estado="0";
+                    Espacio[OpcionVuelo][Fila][Colu]= new Equipaje(Vuelo,FilaBodega,ColumnaBodega,Color,NAsiento,Peso,Estado);
+                    JOptionPane.showMessageDialog(null,"El Equipaje ha sido eliminado con exito ");
+                }
+                else
+                {
+                    JOptionPane.showMessageDialog(null,"El espacio ya se encuentra vacio ");
+                }
             }
             else
             {
-                JOptionPane.showMessageDialog(null,"El espacio ya se encuentra vacio ");
+                JOptionPane.showMessageDialog(null,"La Fila Ingresada no es válida, Intentalo Nuevamente");
             }
     }
     //Método de Busqueda de equipajes
@@ -137,24 +151,27 @@ public class Equipaje
                 int OpcionVuelo=Integer.parseInt(Vuelo)-1;
                 String[] Destinos = {"Costa Rica-Miami", "Costa Rica-Paris", "Costa Rica-Panamá", "Costa Rica-Japón"};
                 String FiladeAsiento =JOptionPane.showInputDialog("Busqueda de Equipaje"+"Escriba la Fila de Bodega[ A-B-C-D ]");
-                String word= "ABCD";
-                String temp=FiladeAsiento;
-                int Fila=word.indexOf(temp);
-                String ColumnadeAsiento =JOptionPane.showInputDialog("Escriba la Columna del Bodega [ 1-40 ]");
-                int Colu=Integer.parseInt(ColumnadeAsiento)-1;
+                if (FilaBodega.equals("A") ||FilaBodega.equals("B") ||FilaBodega.equals("C") ||FilaBodega.equals("D") )
+                {
+                    String word= "ABCD";
+                    String temp=FiladeAsiento;
+                    int Fila=word.indexOf(temp);
+                    String ColumnadeAsiento =JOptionPane.showInputDialog("Escriba la Columna del Bodega [ 1-40 ]");
+                    int Colu=Integer.parseInt(ColumnadeAsiento)-1;
 
-                //Comprobación de la disponibilidad del asiento
-                if( Espacio[OpcionVuelo][Fila][Colu].Estado=="0" )
-                {
-                    JOptionPane.showMessageDialog(null,"El espacio seleccionado  de la Bodega se encuentra vacio");
+                    //Comprobación de la disponibilidad del asiento
+                    if( Espacio[OpcionVuelo][Fila][Colu].Estado=="0" )
+                    {
+                        JOptionPane.showMessageDialog(null,"El espacio seleccionado  de la Bodega se encuentra vacio");
+                    }
+                    else
+                    {
+                        Vuelo=Destinos[OpcionVuelo];
+                        JOptionPane.showMessageDialog(null,Vuelo+"\nEl espacio: "+FilaBodega+ColumnaBodega+" se encuentra ocupado por el equipaje de:\n"+
+                        " Numero de Asiento del dueño "+Espacio[OpcionVuelo][Fila][Colu].NAsiento+" Color: "+Espacio[OpcionVuelo][Fila][Colu].Color+
+                        " Peso: "+Espacio[OpcionVuelo][Fila][Colu].Peso);
+                    }    
                 }
-                else
-                {
-                    Vuelo=Destinos[OpcionVuelo];
-                    JOptionPane.showMessageDialog(null,Vuelo+"\nEl espacio: "+FilaBodega+ColumnaBodega+" se encuentra ocupado por el equipaje de:\n"+
-                    " Numero de Asiento del dueño "+Espacio[OpcionVuelo][Fila][Colu].NAsiento+" Color: "+Espacio[OpcionVuelo][Fila][Colu].Color+
-                    " Peso: "+Espacio[OpcionVuelo][Fila][Colu].Peso);
-                }    
     }
     //Método de Lista de Equipajes
     public void VerListaEquipajes()
@@ -218,10 +235,7 @@ public class Equipaje
 
     public void CheckoutEquipaje()
 {
-    
-    int opcionfinalizar=Integer.parseInt(JOptionPane.showInputDialog(null,"____________________"+"Menu Finalizar Viaje"+
-                        "____________________\nQue Vuelo deseas Finalizar: \n1-Costa Rica-Miami\n2-Costa Rica-Paris\n3-Costa Rica-Panamá\n4-Costa Rica-Japón\n5-Salir de finalizar Vuelos"));
-                       
+              
             opcionfinalizar-=1;    
             if (opcionfinalizar>=0 && opcionfinalizar<=3) 
             {        
@@ -229,7 +243,7 @@ public class Equipaje
                 {
                     for (int j=0;j<4;j++)
                         {
-                         for (int k=0;k<20;k++)
+                         for (int k=0;k<40;k++)
                             {
                                 Vuelo="";
                                 FilaBodega="";

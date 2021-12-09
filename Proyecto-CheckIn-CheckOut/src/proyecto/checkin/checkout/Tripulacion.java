@@ -8,6 +8,7 @@ package proyecto.checkin.checkout;
 //Importación de la libreria para las ventanas de diálogo
 import javax.swing.JOptionPane;
 
+
 //Inicio Clase Tripulación 
 public class Tripulacion 
 {
@@ -22,6 +23,7 @@ public class Tripulacion
     public String Puesto;
     public String NVuelo;
     public String Estado;
+    public static int opcionfinalizar;
 
     //Declaración de variables 
     String mensaje;
@@ -77,28 +79,35 @@ public class Tripulacion
             int OpcionVuelo=Integer.parseInt(Vuelo)-1;
             String[] Destinos = {"Costa Rica-Miami", "Costa Rica-Paris", "Costa Rica-Panamá", "Costa Rica-Japón"};
             String FilaATripulacion =JOptionPane.showInputDialog("Escriba la Fila del Asiento[A-B-C-D]: ");
-            String word= "ABCD";
-            String temp=FilaATripulacion;
-            int Fila=word.indexOf(temp);
-            String ColumnaATripulacion =JOptionPane.showInputDialog("Escriba la Columna del Asiento [1-2]: ");
-            int Colu=Integer.parseInt(ColumnaATripulacion)-1;
-
-            //Comprobación de la disponibilidad del asiento
-            if ( AsientoTripulante[OpcionVuelo][Fila][Colu].Estado=="0" )
+            if (FilaATripulacion.equals("A") ||FilaATripulacion.equals("B") ||FilaATripulacion.equals("C") ||FilaATripulacion.equals("D") )
             {
-                Vuelo=Destinos[OpcionVuelo];
-                String Nombre = JOptionPane.showInputDialog("Escriba su nombre: ");
-                String Apellidos = JOptionPane.showInputDialog("Escriba sus apellido: ");
-                String NVuelo = JOptionPane.showInputDialog("Escriba el numero de Vuelo: ");
-                String Puesto= JOptionPane.showInputDialog("Escriba el puesto del tripulante: ");
-                String Estado ="1";
-                AsientoTripulante[OpcionVuelo][Fila][Colu]= new Tripulacion(Vuelo,FilaATripulacion,ColumnaATripulacion,Nombre,Apellidos,NVuelo,Puesto,Estado);
-                JOptionPane.showMessageDialog(null,Vuelo+"\n Puesto: "+Puesto+Nombre+" "+Apellidos+" Numero de Vuelo : "+
-                NVuelo+" y Numero de Asiento:  "+FilaATripulacion+ColumnaATripulacion+"\n Ha sido registrado con exito :)");
+                String word= "ABCD";
+                String temp=FilaATripulacion;
+                int Fila=word.indexOf(temp);
+                String ColumnaATripulacion =JOptionPane.showInputDialog("Escriba la Columna del Asiento [1-2]: ");
+                int Colu=Integer.parseInt(ColumnaATripulacion)-1;
+
+                //Comprobación de la disponibilidad del asiento
+                if ( AsientoTripulante[OpcionVuelo][Fila][Colu].Estado=="0" )
+                {
+                    Vuelo=Destinos[OpcionVuelo];
+                    String Nombre = JOptionPane.showInputDialog("Escriba su nombre: ");
+                    String Apellidos = JOptionPane.showInputDialog("Escriba sus apellido: ");
+                    String NVuelo = JOptionPane.showInputDialog("Escriba el numero de Vuelo: ");
+                    String Puesto= JOptionPane.showInputDialog("Escriba el puesto del tripulante: ");
+                    String Estado ="1";
+                    AsientoTripulante[OpcionVuelo][Fila][Colu]= new Tripulacion(Vuelo,FilaATripulacion,ColumnaATripulacion,Nombre,Apellidos,NVuelo,Puesto,Estado);
+                    JOptionPane.showMessageDialog(null,Vuelo+"\n Puesto: "+Puesto+" "+Nombre+" "+Apellidos+" Numero de Vuelo : "+
+                    NVuelo+" y Numero de Asiento:  "+FilaATripulacion+ColumnaATripulacion+"\n Ha sido registrado con exito :)");
+                }
+                else
+                {
+                    JOptionPane.showMessageDialog(null,"Lo lamentamos, el campo elegido ya ha sido ocupado por otro Tripulante\nIntentelo nuevamente :( ");
+                }
             }
             else
             {
-                JOptionPane.showMessageDialog(null,"Lo lamentamos, el campo elegido ya ha sido ocupado por otro Tripulante\nIntentelo nuevamente :( ");
+                JOptionPane.showMessageDialog(null,"La Fila Ingresada no es válida, Intentalo Nuevamente");
             }
     }
     
@@ -110,27 +119,33 @@ public class Tripulacion
             int OpcionVuelo=Integer.parseInt(Vuelo)-1;
             String[] Destinos = {"Costa Rica-Miami", "Costa Rica-Paris", "Costa Rica-Panamá", "Costa Rica-Japón"};
             String FilaATripulacion =JOptionPane.showInputDialog("Escriba la Fila del Asiento[A-B-C-D]: ");
-            String word= "ABCD";
-            String temp=FilaATripulacion;
-            int Fila=word.indexOf(temp);
-            String ColumnaATripulacion =JOptionPane.showInputDialog("Escriba la Columna del Asiento [1-2]: ");
-            int Colu=Integer.parseInt(ColumnaATripulacion)-1;
+            if (FilaATripulacion.equals("A") ||FilaATripulacion.equals("B") ||FilaATripulacion.equals("C") ||FilaATripulacion.equals("D") )
+            {
+                String word= "ABCD";
+                String temp=FilaATripulacion;
+                int Fila=word.indexOf(temp);
+                String ColumnaATripulacion =JOptionPane.showInputDialog("Escriba la Columna del Asiento [1-2]: ");
+                int Colu=Integer.parseInt(ColumnaATripulacion)-1;
 
-            //Comprobación de la disponibilidad del asiento
-            if( AsientoTripulante[OpcionVuelo][Fila][Colu].Estado=="0" )
-                {
-                    JOptionPane.showMessageDialog(null,"El espacio seleccionado  de la bodega se encuentra vacio");
-                }
-                else
-                {
-                    Vuelo=Destinos[OpcionVuelo];
-                    JOptionPane.showMessageDialog(null,Vuelo+"\nEl Asiento de tripulacion: "+FilaATripulacion+ColumnaATripulacion+" se encuentra ocupado por:\n"+
-                    Puesto+" Nombre: "+AsientoTripulante[OpcionVuelo][Fila][Colu].Nombre+" Apellidos: "+AsientoTripulante[OpcionVuelo][Fila][Colu].Apellidos+" Numero de Vuelo: "+
-                    AsientoTripulante[OpcionVuelo][Fila][Colu].NVuelo);
-                    
-                    
-                }
-                
+                //Comprobación de la disponibilidad del asiento
+                if( AsientoTripulante[OpcionVuelo][Fila][Colu].Estado=="0" )
+                    {
+                        JOptionPane.showMessageDialog(null,"El espacio seleccionado  de la bodega se encuentra vacio");
+                    }
+                    else
+                    {
+                        Vuelo=Destinos[OpcionVuelo];
+                        JOptionPane.showMessageDialog(null,Vuelo+"\nEl Asiento de tripulacion: "+FilaATripulacion+ColumnaATripulacion+" se encuentra ocupado por:\n "+
+                        Puesto+" Nombre: "+AsientoTripulante[OpcionVuelo][Fila][Colu].Nombre+" Apellidos: "+AsientoTripulante[OpcionVuelo][Fila][Colu].Apellidos+" Numero de Vuelo: "+
+                        AsientoTripulante[OpcionVuelo][Fila][Colu].NVuelo);
+                        
+                        
+                    }
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(null,"La Fila Ingresada no es válida, Intentalo Nuevamente");
+            }
     }
 
     //Método Lista de Pasajeros
@@ -152,7 +167,7 @@ public class Tripulacion
                             else
                             {
                                 Lista=Lista+"\nEl espacio: "+AsientoTripulante[i][j][k].FilaATripulacion+AsientoTripulante[i][j][k]. ColumnaATripulacion+
-                                " se encuentra ocupado por:\n"+"Nombre: "+AsientoTripulante[i][j][k].Nombre+
+                                " se encuentra ocupado por:\n"+" Nombre: "+AsientoTripulante[i][j][k].Nombre+
                                 " Apellidos: "+AsientoTripulante[i][j][k].Apellidos+" Puesto: "+AsientoTripulante[i][j][k].Puesto+AsientoTripulante[i][j][k].NVuelo;
                             }
                         }
@@ -171,7 +186,7 @@ public class Tripulacion
         String[] Destinos = {"Costa Rica-Miami", "Costa Rica-Paris", "Costa Rica-Panamá", "Costa Rica-Japón"};
         for (int i=0;i<4;i++)
         {
-                mensaje=mensaje+"\n"+Destinos[i];
+                mensaje=mensaje+"\n"+Destinos[i]+"\n";
                 for (int j=0;j<4;j++)
                 {
                     for (int k=0;k<2;k++)
@@ -192,20 +207,18 @@ public class Tripulacion
                                                 "                        Asientos para Tripulación \n\n"+mensaje+
                                             "╚═.✰.════════════════════════════════════.✰.═╝");
     }
+    
     public void CheckoutTripulantes()
     {
     
-            int opcionfinalizar=Integer.parseInt(JOptionPane.showInputDialog(null,"____________________"+"Menu Finalizar Viaje"+
-                        "____________________\nQue Vuelo deseas Finalizar: \n1-Costa Rica-Miami\n2-Costa Rica-Paris\n3-Costa Rica-Panamá\n4-Costa Rica-Japón\n5-Salir de finalizar Vuelos"));
-      
-            opcionfinalizar-=1;    
+            
             if (opcionfinalizar>=0 && opcionfinalizar<=3) 
             {        
                 for (int i=0;i<1;i++)
                 {
                     for (int j=0;j<4;j++)
                         {
-                        for (int k=0;k<20;k++)
+                        for (int k=0;k<2;k++)
                             {
                                 Vuelo="";
                                 FilaATripulacion="";
@@ -215,10 +228,7 @@ public class Tripulacion
                                 Puesto = "";
                                 NVuelo = "";
                                 Estado="0";
-                                AsientoTripulante[opcionfinalizar][j][k]= new Tripulacion(Vuelo,FilaATripulacion,ColumnaATripulacion,Nombre,Apellidos,NVuelo,Puesto,Estado);
-
-                                
-                                            
+                                AsientoTripulante[opcionfinalizar][j][k]= new Tripulacion(Vuelo,FilaATripulacion,ColumnaATripulacion,Nombre,Apellidos,NVuelo,Puesto,Estado);                
                             }
                         }
                 }
