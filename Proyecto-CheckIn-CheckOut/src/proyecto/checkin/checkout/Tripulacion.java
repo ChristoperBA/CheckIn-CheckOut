@@ -233,10 +233,7 @@ public class Tripulacion
                         }
                 }
              }
-             else
-             {
-                JOptionPane.showMessageDialog(null,"Opcion invalida, intentalo nuevamente");
-             }           
+                     
 }
 
 

@@ -260,10 +260,7 @@ public class Equipaje
                         }
                 }
              }
-             else
-             {
-                JOptionPane.showMessageDialog(null,"Opcion invalida, intentalo nuevamente");
-             }           
+                   
 }
     
 }//Fin clase Equipaje

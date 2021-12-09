@@ -249,8 +249,8 @@ public class Pasajeros
 
             //Pedimos una opcion para finalizar el viaje a los pasajeros
             opcionfinalizar = Integer.parseInt(JOptionPane.showInputDialog(null,"____________________"+"Menu Finalizar Viaje"+
-            "____________________\nQue Vuelo deseas Finalizar: \n1-Costa Rica-Miami\n2-Costa Rica-Paris\n3-Costa Rica-Panamá\n4-Costa Rica-Japón"));
-            opcionfinalizar= opcionfinalizar-1; 
+            "____________________\nQue Vuelo deseas Finalizar: \n1-Costa Rica-Miami\n2-Costa Rica-Paris\n3-Costa Rica-Panamá\n4-Costa Rica-Japón\n5-Salir Menu Finalizar Viaje"));
+            
 
             //Instanciamos los metodos
             tripulacion.CheckoutTripulantes();
@@ -259,8 +259,9 @@ public class Pasajeros
             //Inicio del ciclo
             do
             {
-                if (opcionfinalizar>=0 &&opcionfinalizar<4)
+                if (opcionfinalizar>=0 &&opcionfinalizar<5)
                 {
+                    opcionfinalizar= opcionfinalizar-1;
                     for (int i=0;i<1;i++)
                     {
                         for (int j=0;j<4;j++)
@@ -285,7 +286,7 @@ public class Pasajeros
                     {
                         JOptionPane.showMessageDialog(null,"Saliendo del menu Finalizar Viajes");
                     }
-                else
+                else if(opcionfinalizar<0 &&opcionfinalizar>4)
                 {
                     JOptionPane.showMessageDialog(null,"Opcion Invalida");
                 }

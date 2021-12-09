@@ -58,6 +58,8 @@ public class ProyectoCheckInCheckOut
             Pasajeros pasajeros=new Pasajeros();
             Equipaje equipaje= new Equipaje();
             Tripulacion tripulacion=new Tripulacion();
+            Vuelos vuelos=new Vuelos();
+            Costos costos=new Costos();
 
             //Se instancian los llenados de los arrays utilizados 
             pasajeros.LlenadoVacio();
@@ -72,7 +74,7 @@ public class ProyectoCheckInCheckOut
                 //Se pide una opcion al cliente sobre las funciones del menú
                 opcion= Integer.parseInt(JOptionPane.showInputDialog(null,"____________________"+"Menu del Sistema"+"____________________\n"
                 +"\n[1] Control Pasajeros"+"\n[2] Control Equipaje"+"\n[3] Control Tripulantes"+"\n[4] CheckOut"+
-                "\n[5] Falta**********"+"\n[6] Salir del sistema"));
+                "\n[5] Control Vuelos"+"\n[6] Generar Factura"+"\n[7] Salir del sistema"));
                 switch(opcion)
                 {
                     case 1:
@@ -189,20 +191,34 @@ public class ProyectoCheckInCheckOut
                             }
                             else 
                             {
+                                JOptionPane.showMessageDialog(null,"Usuario Incorrecto :(\nSolo administradores pueden finalizar Vuelos");
                             }
-                            JOptionPane.showMessageDialog(null,"Usuario Incorrecto :(\nSolo administradores pueden finalizar Vuelos");
+                            
                         }
-                        
                         pasajeros.CheckoutPasajeros();
-                        
-                        //tripulacion.CheckoutTripulantes();
-                       // equipaje.CheckoutEquipaje();
-                     
                         break;
                  case 5:
-                        JOptionPane.showMessageDialog(null,"Opcion 5*********FALTA************");
+                        int opcionvuelo=Integer.parseInt(JOptionPane.showInputDialog(null,"____________________"+"Menu Vuelos"+"____________________"
+                        +"\n[1] Reservar Asientos"+"\n[2] Ver informacion de vuelos"+"\n[3] Salir Menu Vuelos"));
+                        switch(opcionvuelo)
+                        {
+                            case 1:
+                            vuelos.Mensaje2();
+                            break;
+                            case 2:
+                            vuelos.VueloInformacion();
+                            break;
+                            case 3:
+                            JOptionPane.showMessageDialog(null,"Saliendo del Menu de Tripulante");
+                            break;
+                            default:
+                            JOptionPane.showMessageDialog(null,"Opcion invalida");
+                        }
                         break;
                  case 6:
+                        costos.Factura();
+                        break;
+                 case 7:
                         salir=true;
                         JOptionPane.showMessageDialog(null,"Cerrando Programa...\n"+
                         "El programa fue cerrado con exito\n\n"+
