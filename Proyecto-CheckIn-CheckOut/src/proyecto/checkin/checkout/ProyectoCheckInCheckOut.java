@@ -1,7 +1,7 @@
 /* 
 Proyecto Introducción a la programación
 Creacion de un Software de control Check-in/Check out para una empresa de aviación comercial
-Integrantes: Christopher Briceño Arias Valeria Chacón Quintero Josué Palavicini Godinez
+Integrantes: Christopher Briceño Arias Valeria Chacón Quintero 
 Profesora: Christy Aguero Valverde
 
 --------Año 2021-------- 
@@ -28,7 +28,7 @@ public class ProyectoCheckInCheckOut
         {
             //Inicio de Acceso
             //Inicio del ciclo para Inicio de sesión
-            /*
+            
             boolean Acceso = false;
             while (!Acceso)
                 {
@@ -52,7 +52,7 @@ public class ProyectoCheckInCheckOut
                         JOptionPane.showMessageDialog(null,"Usuario Incorrecto :(");
                     }
                 }
-                */
+                
 
             //Se instancias las Clases
             Pasajeros pasajeros=new Pasajeros();
