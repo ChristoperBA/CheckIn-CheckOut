@@ -6,7 +6,7 @@ empresa de aviación comercial
 
 Integrantes:
 Christopher Briceño Arias 
-Valeria Chacón Quintero 
+ 
 
 
 Profesora:

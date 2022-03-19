@@ -16,9 +16,9 @@ public class ProyectoCheckInCheckOut
     //Clase Main
     public static void main(String[] args)
             {
-
+                System.out.print("Hola");
                 //Iniciamos el Menú
-                Menu();
+                // Menu();
 
             }//fin del main
 
