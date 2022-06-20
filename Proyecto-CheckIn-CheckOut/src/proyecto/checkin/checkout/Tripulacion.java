@@ -235,12 +235,4 @@ public class Tripulacion
              }
                      
 }
-
-
-
-
-
-
-
-
 }//Fin clase Tripulación

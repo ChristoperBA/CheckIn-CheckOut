@@ -186,7 +186,7 @@ public class ProyectoCheckInCheckOut
                                     }
                                     else
                                     {
-                                            JOptionPane.showMessageDialog(null,"La contraseña es incorrecta, Intentalo nuevamente :(\nSolo administradores pueden finalizar Vuelos");
+                                        JOptionPane.showMessageDialog(null,"La contraseña es incorrecta, Intentalo nuevamente :(\nSolo administradores pueden finalizar Vuelos");
                                     }
                             }
                             else 

@@ -66,7 +66,6 @@ public class Equipaje
                 }
         }   
     }
-
     //Métodos funcionales
     //Método de Registro de Equipajes
     public void RegistrarEquipaje()
@@ -258,8 +257,6 @@ public class Equipaje
                             }
                         }
                 }
-             }
-                   
-}
-    
+             }              
+}   
 }//Fin clase Equipaje

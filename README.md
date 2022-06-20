@@ -1,16 +1,13 @@
 # CheckIn-CheckOut
 
 Creation of a Check-in/Check-out control software for a commercial aviation company 
-Java Introduccionts
+Java Introduccionts-CRUD
+![](/Proyecto-CheckIn-CheckOut/img/Banner.png)
 
-
-
-Integrantes:
+Integrante:
 Christopher Briceño Arias 
  
-
-
-Profesora:
+Prof:
 Christy Aguerro Valverde
 
 

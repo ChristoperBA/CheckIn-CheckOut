@@ -64,7 +64,6 @@ public class Pasajeros
         this.Estado =Estado;
        
     }  
-    
     //Métodos funcionales
     //Método de registro de Pasajeros
     public void RegistrarPasajero() 
