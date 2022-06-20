@@ -1,8 +1,9 @@
 # CheckIn-CheckOut
-Proyecto Introduccion a la programación
 
-Creacion de un Software de control Check-in/Check out para una 
-empresa de aviación comercial
+Creation of a Check-in/Check-out control software for a commercial aviation company 
+Java Introduccionts
+
+
 
 Integrantes:
 Christopher Briceño Arias 
@@ -12,4 +13,4 @@ Christopher Briceño Arias
 Profesora:
 Christy Aguerro Valverde
 
---------Año 2021--------
+
