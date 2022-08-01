@@ -16,10 +16,9 @@ public class ProyectoCheckInCheckOut
     //Clase Main
     public static void main(String[] args)
             {
-                
                 //Iniciamos el Menú
+                //Leonardo y Anthony
                 Menu();
-
             }//fin del main
 
 
